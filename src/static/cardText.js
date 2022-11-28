@@ -1,4 +1,4 @@
-const places = [
+const cardText = [
   {
     title: 'What is Mentee?',
     description:
@@ -17,4 +17,4 @@ const places = [
   },
 ];
 
-export default places;
+export default cardText;
