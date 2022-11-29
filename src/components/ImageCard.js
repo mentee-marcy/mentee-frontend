@@ -18,13 +18,13 @@ const useStyles = makeStyles({
     height: 440,
   },
   title: {
-    fontFamily: "-apple-system-headline",
+    fontFamily: "KohinoorBangla-Semibold",
     fontWeight: 'bold',
     fontSize: '2rem',
     color: '#fff',
   },
   desc: {
-    fontFamily: "-apple-system-caption1",
+    fontFamily: "KohinoorBangla-Semibold",
     fontSize: '1.1rem',
     color: '#ddd',
   },
@@ -60,7 +60,7 @@ export default function ImageCard({ place, checked }) {
             {place.description}
           </Typography>
         </CardContent>
-        <div style={{ display:'flex', justifyContent:'center', padding:'10px' }}>
+        <div style={{ fontFamily:"KohinoorBangla-Semibold!important",display:'flex', justifyContent:'center', padding:'10px' }}>
         <Button color="primary"variant="contained">{place.buttonDescription}</Button>
         </div>
       </Card>

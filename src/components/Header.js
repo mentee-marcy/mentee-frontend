@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     height: '100vh',
-    fontFamily: "SanFranciscoText-Regular",
+    fontFamily: "KohinoorBangla-Semibold",
   },
   appbar: {
     background: 'none',
