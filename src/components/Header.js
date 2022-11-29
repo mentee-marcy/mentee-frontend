@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, IconButton, Toolbar, Collapse } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Link as Scroll } from 'react-scroll';
+import {Link} from "react-router-dom";
 import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
@@ -55,7 +56,7 @@ export default function Header() {
           <h1 className={classes.appbarTitle}>
             mentee.<span className={classes.colorText}></span>
           </h1>
-          <Button color="inherit"variant="outlined">Log In</Button>
+          <Link to="/login"><Button color="primary"variant="contained">Log In</Button></Link>
         </Toolbar>
       </AppBar>
 

@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.Login {
+  font-family: KohinoorBangla-Semibold;
+  text-align: center;
+  background-color: #3C4E5C;
+  background-image: url("./pages/bg.jpg");
+  background-size:contain;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.form {
+  max-width: 30vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  padding: 20vw;
+  color: white!important;
+}
+
+.form .form__custom-button {
+  margin-top: 50px;
+}
