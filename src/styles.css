@@ -8,7 +8,7 @@
   text-align: center;
   background-color: #3C4E5C;
   background-image: url("./pages/bg.jpg");
-  background-size:contain;
+  background-size:cover;
   min-height: 100vh;
   justify-content: center;
   align-items: center;
@@ -26,6 +26,17 @@
   color: white!important;
 }
 
+.makeStyles-input-10 {
+  color: white !important;
+}
+
+.makeStyles-underline-2:after {
+  border-color: white !important;
+}
+
+.makeStyles-button-12:hover, .makeStyles-button-12:focus {
+  box-shadow: none !important;
+}
 .form .form__custom-button {
   margin-top: 50px;
 }
