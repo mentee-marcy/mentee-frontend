@@ -37,7 +37,7 @@ Mentee is a live-communication application that enables Mentees to find a commun
 
 ### Built With
 * [![React][React.js]][React-url]
-* [!Javascript][Javascript]][Javascript-url]
+* [![Javascript][Javascript]][Javascript-url]
 
 <!-- CONTACT -->
 ## Contact
