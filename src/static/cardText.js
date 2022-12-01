@@ -6,6 +6,7 @@ const cardText = [
     imageUrl: process.env.PUBLIC_URL + '/assets/mentor.jpg',
     time: 1500,
     buttonDescription: 'Become a Mentor',
+    link: '/registerMentor',
   },
   {
     title: 'Why become a Mentee?',
@@ -14,6 +15,7 @@ const cardText = [
     imageUrl: process.env.PUBLIC_URL + '/assets/mentee.jpg',
     time: 1500,
     buttonDescription: 'Become a Mentee',
+    link: '/registerMentee',
   },
 ];
 

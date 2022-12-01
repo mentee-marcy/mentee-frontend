@@ -57,17 +57,20 @@ function getStyles(name, personName, theme) {
   };
 }
 
-export default function MultipleSelect() {
+export default function MultipleSelect(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [personName, setPersonName] = React.useState([]);
+  const {user, setUser} = props.prop
 
   const handleChange = (event) => {
     setPersonName(event.target.value);
+    setUser({...user, "languages": event.target.value});
   };
   if(personName.length >= 4) {
     alert('Select Max 3 Languages');
     personName.length = 3;
+    setUser({...user, "languages": personName});
   }
 
   return (
@@ -79,6 +82,7 @@ export default function MultipleSelect() {
           id="demo-mutiple-name"
           multiple
           value={personName}
+    
           onChange={handleChange}
           input={<Input />}
           MenuProps={MenuProps}

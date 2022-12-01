@@ -40,7 +40,7 @@ export default class Login extends Component {
         <form className="form">
           <CustomInput
             style={{color:'white !important'}}
-            labelText="Email"
+            labelText="Username"
             id="email"
             formControlProps={{
               fullWidth: true

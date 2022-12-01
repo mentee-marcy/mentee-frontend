@@ -40,3 +40,10 @@
 .form .form__custom-button {
   margin-top: 50px;
 }
+.MuiInputBase-input {
+  color: white !important;
+}
+
+.MuiFormLabel-root {
+  color: #96bbd6 !important;
+}
