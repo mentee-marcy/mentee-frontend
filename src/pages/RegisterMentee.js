@@ -29,6 +29,7 @@ export const RegisterMentee = () => {
         try {
             const resp = await axios.post('localhost:8000/user/register', user);
             console.log(resp.data);
+            console.log('Hello');
         }catch (error){
             console.log(error.response);
         }
