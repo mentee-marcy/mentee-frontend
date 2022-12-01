@@ -37,21 +37,16 @@ Mentee is a live-communication application that enables Mentees to find a commun
 
 ### Built With
 * [![React][React.js]][React-url]
+* [!Javascript][Javascript]][Javascript-url]
 
 <!-- CONTACT -->
 ## Contact
 
-Shadman Chowdhury(Product Owner) - https://github.com/shadmanc01 
+Shadman Chowdhury(Product Owner) - https://github.com/shadmanc01 - https://www.linkedin.com/in/shadmanc/
 <br />
-Jose Mazhuvanchery(Scrum Master) - https://github.com/josemazhuvanchery1
+Jose Mazhuvanchery(Scrum Master) - https://github.com/josemazhuvanchery1 - https://www.linkedin.com/in/jose-mazhuvanchery/
 <br />
-Noel Fernandez(Scrum Master) - https://github.com/noelfernandez98
-
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
+Noel Fernandez(Scrum Master) - https://github.com/noelfernandez98 - https://www.linkedin.com/in/noelfernandez98/
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
@@ -65,3 +60,5 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
+[Javascript]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[Javascript-url]: https://www.javascript.com
