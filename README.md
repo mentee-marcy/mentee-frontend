@@ -19,7 +19,7 @@
 
 ## About The Project
 
-<img src="demo.png" width="200" height="200"/>
+<img src="demo.png"/>
 
 Mentee is an application for high-school graduates or GED holders from underprivileged communities and nontraditional backgrounds looking to build career skills through mentorship and community. Mentees can practice technical code, learn what a career in tech looks like, and receive support from mentors and Mentee friends via live communication throughout their career journey. 
 
