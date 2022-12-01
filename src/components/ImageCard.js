@@ -7,6 +7,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { Collapse } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
+import {Link} from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
@@ -32,6 +33,7 @@ const useStyles = makeStyles({
 
 export default function ImageCard({ place, checked }) {
   const classes = useStyles();
+  const link = place.link;
 
   return (
     
@@ -61,7 +63,7 @@ export default function ImageCard({ place, checked }) {
           </Typography>
         </CardContent>
         <div style={{ fontFamily:"KohinoorBangla-Semibold!important",display:'flex', justifyContent:'center', padding:'10px' }}>
-        <Button color="primary"variant="contained">{place.buttonDescription}</Button>
+        <Link to={link}><Button color="primary"variant="contained">{place.buttonDescription}</Button></Link>
         </div>
       </Card>
     </Collapse>

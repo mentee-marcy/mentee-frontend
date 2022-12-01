@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.Login {
+  font-family: KohinoorBangla-Semibold;
+  text-align: center;
+  background-color: #3C4E5C;
+  background-image: url("./pages/bg.jpg");
+  background-size:cover;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.form {
+  max-width: 30vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  padding: 20vw;
+  color: white!important;
+}
+
+.makeStyles-input-10 {
+  color: white !important;
+}
+
+.makeStyles-underline-2:after {
+  border-color: white !important;
+}
+
+.makeStyles-button-12:hover, .makeStyles-button-12:focus {
+  box-shadow: none !important;
+}
+.form .form__custom-button {
+  margin-top: 50px;
+}
+.MuiInputBase-input {
+  color: white !important;
+}
+
+.MuiFormLabel-root {
+  color: #96bbd6 !important;
+}
