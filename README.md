@@ -62,7 +62,7 @@ Noel Fernandez(Scrum Master) - https://github.com/noelfernandez98 - https://www.
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* []()
+* [](Ana, Jowel, Caston)
 * []()
 * []()
 
