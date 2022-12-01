@@ -71,5 +71,3 @@ Noel Fernandez(Scrum Master) - https://github.com/noelfernandez98 - https://www.
 
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
-[Javascript]: 
-[Javascript-url]: https://www.javascript.com
