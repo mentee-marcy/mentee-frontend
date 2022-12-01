@@ -41,7 +41,9 @@ Mentee is a live-communication application that enables Mentees to find a commun
 <!-- CONTACT -->
 ## Contact
 
-Shadman Chowdhury (Product Owner) - https://github.com/shadmanc01 
+Shadman Chowdhury(Product Owner) - https://github.com/shadmanc01 
+Jose Mazhuvanchery(Scrum Master) - https://github.com/josemazhuvanchery1
+Noel Fernandez(Scrum Master) - https://github.com/noelfernandez98
 
 Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
 
