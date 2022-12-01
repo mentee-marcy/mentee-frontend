@@ -33,7 +33,7 @@
     <img src="logo.JPEG" alt="Logo" width="80" height="80"> 
   </img>
 
-<h3 align="center">project_title</h3>
+<h3 align="center">mentee.</h3>
 
   <p align="center">
     project_description
