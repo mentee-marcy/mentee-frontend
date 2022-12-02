@@ -25,7 +25,12 @@ const useStyles = makeStyles((theme) => ({
 export const RegisterMentor = () => {
 
   const [user, setUser] = useState({
-    mentor_obj: {},
+    mentor_obj: {
+      "company_name": '',
+      "title": '',
+      "location": '',
+      "bio": '',
+    },
     mentor: true,
   });
 
