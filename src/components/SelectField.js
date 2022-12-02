@@ -65,12 +65,12 @@ export default function MultipleSelect(props) {
 
   const handleChange = (event) => {
     setPersonName(event.target.value);
-    setUser({...user, "languages": event.target.value});
+    setUser({...user, "tech_stack": event.target.value});
   };
   if(personName.length >= 4) {
     alert('Select Max 3 Languages');
     personName.length = 3;
-    setUser({...user, "languages": personName});
+    setUser({...user, "tech_stack": personName});
   }
 
   return (

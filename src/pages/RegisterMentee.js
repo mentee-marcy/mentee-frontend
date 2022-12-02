@@ -23,15 +23,15 @@ const useStyles = makeStyles((theme) => ({
 
 export const RegisterMentee = () => {
 
-    const [user, setUser] = useState({mentor: false});
+    const [user, setUser] = useState({mentor: false, mentor_obj: {}});
 
     const createUser = async (e)  => {
         try {
-            const resp = await axios.post('localhost:8000/user/register', user);
-            console.log(resp.data);
-            console.log('Hello');
+            const resp = await axios.post('http://localhost:8000/users/register', user);
+            console.log(resp);
+            console.log(user);
         }catch (error){
-            console.log(error.response);
+            console.log(error);
         }
     }
     

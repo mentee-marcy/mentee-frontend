@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState } from 'react';
 import SelectField from '../components/SelectField';
 import InputForm from '../components/InputForm';
 import Button from '@material-ui/core/Button';
@@ -7,6 +7,7 @@ import { AppBar, Toolbar } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 import {Link} from "react-router-dom";
 import bg from '../images/register.jpg';
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
     appbar: {
@@ -22,6 +23,22 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 export const RegisterMentor = () => {
+
+  const [user, setUser] = useState({
+    mentor_obj: {},
+    mentor: true,
+  });
+
+  const createUser = async (e)  => {
+    try {
+        const resp = await axios.post('http://localhost:8000/users/register', user);
+        console.log(resp);
+        console.log(user);
+    }catch (error){
+        console.log(error);
+    }
+  }
+
   return (
     <div style={{minHeight: '100vh',backgroundImage: `url(${bg})`,backgroundSize: 'cover', position: 'relative', alignItems: 'center', display: "flex", flexDirection: 'column', flex: '50%'}}>
         <AppBar style={{ background: '#2E3B55' }}>
@@ -31,15 +48,15 @@ export const RegisterMentor = () => {
           </h1></Link>
         </Toolbar>
         </AppBar>
-        <div style={{paddingTop: '5rem',color: 'white !important', flex: '50%'}}>
-            <InputForm/>
-            <SelectField style={{alignItems: 'center'}}/>
+        <div style={{paddingTop: '5rem',color: 'white !important'}}>
+            <InputForm prop={{user, setUser}}/>
+            <SelectField prop={{user, setUser}} style={{alignItems: 'center'}}/>
         </div>
         <div>
-            <MentorInputs/>
+            <MentorInputs prop={{user, setUser}}/>
         </div>
         <div style={{padding: '2rem'}}>
-            <Button variant="contained" color="primary">Register</Button>
+            <Button onClick={() => createUser()} variant="contained" color="primary">Register</Button>
         </div>
     </div>
   )

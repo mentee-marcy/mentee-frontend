@@ -11,16 +11,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function FormPropsTextFields() {
+export default function FormPropsTextFields(props) {
   const classes = useStyles();
+  const {user, setUser} = props.prop
 
   return (
     <form className={classes.root} noValidate autoComplete="off">
       <div style={{display: 'grid', color: 'white !important'}}>
-        <TextField required id="standard-required" label="Company Name" defaultValue="" />
-        <TextField required id="standard-required" label="Title" defaultValue="" />
-        <TextField required id="standard-required" label="Location" defaultValue="" />
-        <TextField label="Bio" defaultValue="" />
+        <TextField onChange={(e) => setUser({...user.mentor_obj, "company_name" : e.target.value})}required id="standard-required" label="Company Name" defaultValue="" />
+        <TextField onChange={(e) => setUser({...user.mentor_obj, "title" : e.target.value})}required id="standard-required" label="Title" defaultValue="" />
+        <TextField onChange={(e) => setUser({...user.mentor_obj, "location" : e.target.value})}required id="standard-required" label="Location" defaultValue="" />
+        <TextField onChange={(e) => setUser({...user.mentor_obj, "bio" : e.target.value})}label="Bio" defaultValue="" />
       </div>
       </form>
   );
