@@ -23,10 +23,9 @@ const useStyles = makeStyles((theme) => ({
 const loginUser = async (data)  =>{
   try {
     const resp = await axios.post('http://localhost:8000/users/login', data);
-    console.log(resp);
-    console.log(data);
+    window.localStorage.setItem('id', resp.data.user.id);
 }catch (error){
-    console.log(error);
+    alert('Incorrect Username or Password')
 }
 }
 
