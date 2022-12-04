@@ -63,7 +63,7 @@ Noel Fernandez(Scrum Master/Developer) - https://github.com/noelfernandez98 - ht
 ## Acknowledgments
 
 * Ana, Jowel, Caston
-* GP
+* Gurupriyan Jayakaran AKA GP AKA Gupz - https://github.com/gurupriyan - https://www.linkedin.com/in/gurupriyan-jayakaran/
 * Marcy Lab School
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
