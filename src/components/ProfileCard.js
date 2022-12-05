@@ -11,21 +11,21 @@ export default function BasicCard(props) {
   console.log(TechStack);
 
   return (
-    <Card sx={{ maxWidth: 275, textAlign: 'center'}}>
+    <Card sx={{ minWidth: 275, textAlign: 'center'}}>
       <CardContent>
         <Typography sx={{ fontSize: 16, fontWeight: 'bold' }} color="text.secondary" gutterBottom>
         {MentorStatus}
         </Typography>
         <div style={{paddingLeft:'6.3rem', paddingTop:'.5rem', paddingBottom:'.5rem'}}>
-        {/* <Avatar Name={Avatar}/> */}
+        <Avatar Name={Name}/>
         </div>
         <Typography className= "Name"sx={{ mb: 1.9 }} color="text.secondary">
             {Name}
         </Typography>
-        <Typography sx={{ fontSize: 12, fontWeight: 'bold' }}variant="body2">{TechStack}
+        <Typography sx={{ fontSize: 12, fontWeight: 'bold' }}variant="body2">{[TechStack].join(' ')}
         </Typography>
       </CardContent>
-      <CardActions style={{paddingLeft:'1.45rem'}}>
+      <CardActions style={{paddingLeft:'4.7rem'}}>
         <Button size="small">{addMentor}</Button>
       </CardActions>
     </Card>

@@ -5,9 +5,10 @@ import Switch from '../components/Switch';
 
 export default function Dashboard() {
   return (
-    <div style={{minHeight: '100vh', backgroundColor:'#2B2B2B!important'}}>
+    <div style={{minHeight: '100vh', maxWidth:'100vh', backgroundColor:'blue!important'}}>
       <Sidebar/>
-      <div style={{paddingLeft: '50%'}}>
+      <p style={{}}>Find your Mentee Community Today</p>
+      <div style={{paddingLeft: '10%'}}>
       <Switch />
       </div>
     </div>

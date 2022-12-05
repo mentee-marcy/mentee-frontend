@@ -1,14 +1,14 @@
 import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
+import Pic from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 
-function stringToColor(props) {
+function stringToColor(string) {
   let hash = 0;
   let i;
-
+  
   /* eslint-disable no-bitwise */
-  for (i = 0; i < props.length; i += 1) {
-    hash = props.charCodeAt(i) + ((hash << 5) - hash);
+  for (i = 0; i < string.length; i += 1) {
+    hash = string.charCodeAt(i) + ((hash << 5) - hash);
   }
 
   let color = '#';
@@ -22,19 +22,23 @@ function stringToColor(props) {
   return color;
 }
 
-function stringAvatar(props) {
+function stringAvatar(string) {
   return {
     sx: {
-      bgcolor: stringToColor(),
+      bgcolor: stringToColor(string),
     },
-    children: `${props.split(' ')[0][0]}${props.split(' ')[1][0]}`,
+    children: `${string.split(' ')[0][0]}${string.split(' ')[1][0]}`,
   };
 }
 
-export default function BackgroundLetterAvatars() {
+export default function Avatar(props) {
   return (
-    <Stack direction="row" spacing={2}>
-      <Avatar {...stringAvatar()} />
-    </Stack>
+    <>
+    {console.log(props, "here")}
+        <Stack direction="row" spacing={2}>
+        <Pic {...stringAvatar(props.Name)} />
+        </Stack>
+    </>
+    
   );
 }
