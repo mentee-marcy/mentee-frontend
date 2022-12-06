@@ -22,6 +22,7 @@ export default function FormPropsTextFields(props) {
         <TextField required id="standard-required" label="First Name" defaultValue="" onChange={(e) => setUser({...user, "first_name" : e.target.value})} />
         <TextField required id="standard-required" label="Last Name" defaultValue="" onChange={(e) => setUser({...user, "last_name" : e.target.value})}/>
         <TextField required id="standard-required" label="Email" defaultValue="" onChange={(e) => setUser({...user, "email" : e.target.value})}/>
+        <TextField required id="standard-required" label="Username" defaultValue="" onChange={(e) => setUser({...user, "username" : e.target.value})}/>
         <TextField
           id="standard-password-input"
           label="Password"
@@ -29,7 +30,6 @@ export default function FormPropsTextFields(props) {
           autoComplete="current-password"
           onChange={(e) => setUser({...user, "password" : e.target.value})}
         />
-        <TextField required id="standard-required" label="Username" defaultValue="" onChange={(e) => setUser({...user, "username" : e.target.value})}/>
       </div>
     </form>
   );
