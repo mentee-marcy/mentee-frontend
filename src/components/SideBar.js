@@ -164,7 +164,7 @@ class MiniDrawer extends React.Component {
             </IconButton>
             <Typography
               variant="h6"
-              color="inherit"
+              color="white"
               className={classes.grow}
               noWrap
             >

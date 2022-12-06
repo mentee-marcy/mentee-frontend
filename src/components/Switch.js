@@ -31,7 +31,7 @@ export default function Switches() {
         onClick={getUsers}
         inputProps={{ 'aria-label': 'primary checkbox' }}
       />
-      <div style={{display:'flex', flexWrap: 'wrap', gap: '5px'}}>
+      <div style={{display:'flex', flexWrap: 'wrap', gap: '20px'}}>
         {mentees.map(m => (
             <ProfileCard MentorStatus={m.mentor === true ? 'Mentor': 'Mentee'} Name={m.first_name + ' ' + m.last_name} bio={m.bio} addMentor={m.mentor === true ? 'Add as Mentor': 'Add as Mentee'} TechStack={m.tech_stack}/>
             // console.log(m)

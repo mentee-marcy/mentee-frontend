@@ -81,3 +81,16 @@
 .MuiPaper-elevation1 {
   box-shadow: none!important;
 }
+
+body {
+  background-color: #1E1E1E!important;
+  font-family: KohinoorBangla-Semibold!important;
+}
+
+.css-1xa7wra-MuiTypography-root {
+  font-family: KohinoorBangla-Semibold!important;
+}
+
+.css-1knaqv7-MuiButtonBase-root-MuiButton-root {
+  font-family: KohinoorBangla-Semibold!important;
+}
