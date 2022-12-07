@@ -1,0 +1,23 @@
+
+
+.cellAction{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.acceptButton{
+    padding: 2px 5px;
+    border-radius: 5px;
+    color: white;
+    border: 1px solid;
+    background-color: #537dd2;
+    cursor: pointer;
+}
+.deleteButton{
+    padding: 2px 5px;
+    border-radius: 5px;
+    color: white;
+    border: 1px solid;
+    background-color: #858990;
+    cursor: pointer;
+}
