@@ -110,7 +110,8 @@ class MiniDrawer extends React.Component {
   state = {
     open: false,
     anchorEl: null,
-    logOut: false
+    logOut: false,
+    profile: false
   };
 
   handleDrawerOpen = () => {
@@ -193,7 +194,9 @@ class MiniDrawer extends React.Component {
                 open={open}
                 onClose={this.handleClose}
               >
+                <>
                 <MenuItem onClick={this.handleClose}>Profile</MenuItem>
+                </>
                 <MenuItem onClick={this.handleClose}>My account</MenuItem>
               </Menu>
             </div>
