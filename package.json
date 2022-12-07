@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/core": "^7.20.5",
+    "@babel/preset-env": "^7.20.2",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
+    "@mui/icons-material": "^5.10.16",
     "@mui/material": "^5.10.16",
     "@mui/x-data-grid": "^5.17.14",
     "@testing-library/jest-dom": "^4.2.4",
@@ -14,10 +17,11 @@
     "@testing-library/user-event": "^7.2.1",
     "axios": "^1.2.0",
     "classnames": "^2.3.2",
+    "mdb-ui-kit": "^6.0.1",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "3.4.3",
+    "react-scripts": "^5.0.1",
     "react-scroll": "^1.8.1"
   },
   "scripts": {

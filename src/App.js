@@ -5,6 +5,9 @@ import {Routes, Route } from 'react-router-dom'
 import { RegisterMentee } from './pages/RegisterMentee';
 import {RegisterMentor} from './pages/RegisterMentor';
 import { FriendsPage } from './pages/FriendsPage';
+import {Message} from './pages/Message';
+import Dashboard from './pages/Dashboard';
+import Profile from './pages/Profile'
 
 export default function App() {
   return (
@@ -15,6 +18,9 @@ export default function App() {
         <Route path="/registerMentee" element={<RegisterMentee/>}/>
         <Route path="/registerMentor" element={<RegisterMentor/>}/>
         <Route path="/friendsPage" element={<FriendsPage/>}/>
+        <Route path="/dashboard" element={<Dashboard/>}/>
+        <Route path="/message" element={<Message/>}/>
+        <Route path="/profile" element={<Profile/>}/>
       </Routes>
      </div>
 
