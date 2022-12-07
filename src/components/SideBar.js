@@ -21,7 +21,7 @@ import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import MailIcon from "@material-ui/icons/Mail";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
-import { Navigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
 const drawerWidth = 220;
 
@@ -111,7 +111,8 @@ class MiniDrawer extends React.Component {
     open: false,
     anchorEl: null,
     logOut: false,
-    profile: false
+    profile: false,
+    home: false
   };
 
   handleDrawerOpen = () => {
@@ -131,6 +132,9 @@ class MiniDrawer extends React.Component {
   handleLogout = () => {
     localStorage.clear();
     this.setState({ logOut: true});
+  }
+  handleHome = () => {
+    this.setState({ home: true});
   }
 
   render() {
@@ -168,9 +172,11 @@ class MiniDrawer extends React.Component {
               color="white"
               className={classes.grow}
               noWrap
+              onClick={this.handleHome}
             >
-              mentee.
+              <Link style={{textDecoration:'none', color:'white'}}to='/dashboard'>mentee.</Link>
             </Typography>
+            
             <div>
               <IconButton
                 aria-owns={open ? "menu-appbar" : undefined}
@@ -178,8 +184,9 @@ class MiniDrawer extends React.Component {
                 onClick={this.handleMenu}
                 color="inherit"
               >
-                <AccountCircle />
+                <Link style={{textDecoration:'none', color:'white'}} to='/profile'><AccountCircle /></Link>
               </IconButton>
+              
               <Menu
                 id="menu-appbar"
                 anchorEl={anchorEl}
@@ -191,13 +198,7 @@ class MiniDrawer extends React.Component {
                   vertical: "top",
                   horizontal: "right"
                 }}
-                open={open}
-                onClose={this.handleClose}
               >
-                <>
-                <MenuItem onClick={this.handleClose}>Profile</MenuItem>
-                </>
-                <MenuItem onClick={this.handleClose}>My account</MenuItem>
               </Menu>
             </div>
           </Toolbar>
@@ -218,28 +219,28 @@ class MiniDrawer extends React.Component {
         >
           <div className={classes.toolbar} />
           <List>
-              <ListItem button key='Mentor'>
+              <ListItem style={{color:'white'}}button key='Mentor'>
                 <ListItemIcon>
                   <EmojiPeopleIcon/>
                 </ListItemIcon>
-                <ListItemText primary='Mentor' />
+                <ListItemText style={{color:'white'}}primary='Mentor' />
               </ListItem>
               <ListItem button key='Friends'>
                 <ListItemIcon>
                   <WcIcon/>
                 </ListItemIcon>
-                <ListItemText primary='Friends' />
+                <ListItemText style={{color:'white'}}primary='Friends' />
               </ListItem>
               <ListItem button key='Messages'>
                 <ListItemIcon>
                   <MailIcon/>
                 </ListItemIcon>
-                <ListItemText primary='Messages' />
+                <ListItemText style={{color:'white'}}primary='Messages' />
               </ListItem>
           </List>
           <Divider />
           <List>
-              <ListItem onClick={this.handleLogout}button key='Log Out'>
+              <ListItem style={{color:'white'}} onClick={this.handleLogout}button key='Log Out'>
                 <ListItemIcon>
                   <ExitToAppIcon/>
                 </ListItemIcon>
