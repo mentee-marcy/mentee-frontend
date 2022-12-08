@@ -246,12 +246,14 @@ class MiniDrawer extends React.Component {
 
               </ListItem>
             </Link>
+            <Link to="/message">
             <ListItem button key="Messages">
               <ListItemIcon>
                 <MailIcon />
               </ListItemIcon>
               <ListItemText style={{ color: 'white' }} primary="Messages" />
             </ListItem>
+            </Link>
           </List>
           <Divider />
           <List>
