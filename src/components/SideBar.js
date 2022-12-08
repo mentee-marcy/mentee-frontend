@@ -1,118 +1,118 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
-import { withStyles } from "@material-ui/core/styles";
-import Drawer from "@material-ui/core/Drawer";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import List from "@material-ui/core/List";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import AccountCircle from "@material-ui/icons/AccountCircle";
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import { withStyles } from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import List from '@material-ui/core/List';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import AccountCircle from '@material-ui/icons/AccountCircle';
 import WcIcon from '@material-ui/icons/Wc';
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import ListItemText from "@material-ui/core/ListItemText";
+import ListItemText from '@material-ui/core/ListItemText';
 import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
-import MailIcon from "@material-ui/icons/Mail";
-import MenuItem from "@material-ui/core/MenuItem";
-import Menu from "@material-ui/core/Menu";
+import MailIcon from '@material-ui/icons/Mail';
+import MenuItem from '@material-ui/core/MenuItem';
+import Menu from '@material-ui/core/Menu';
 import { Link, Navigate } from 'react-router-dom';
 
 const drawerWidth = 220;
 
-const styles = theme => ({
+const styles = (theme) => ({
   root: {
-    display: "flex"
+    display: 'flex',
   },
   appBar: {
-    zIndex: theme.zIndex.drawer + 1
+    zIndex: theme.zIndex.drawer + 1,
   },
   appBarShift: {
     marginLeft: drawerWidth,
     width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(["width", "margin"], {
+    transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen
-    })
+      duration: theme.transitions.duration.enteringScreen,
+    }),
   },
   menuButton: {
     marginLeft: 12,
-    marginRight: 36
+    marginRight: 36,
   },
   menuButtonIconClosed: {
-    transition: theme.transitions.create(["transform"], {
+    transition: theme.transitions.create(['transform'], {
       easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
+      duration: theme.transitions.duration.leavingScreen,
     }),
-    transform: "rotate(0deg)"
+    transform: 'rotate(0deg)',
   },
   menuButtonIconOpen: {
-    transition: theme.transitions.create(["transform"], {
+    transition: theme.transitions.create(['transform'], {
       easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
+      duration: theme.transitions.duration.leavingScreen,
     }),
-    transform: "rotate(180deg)"
+    transform: 'rotate(180deg)',
   },
   hide: {
-    display: "none"
+    display: 'none',
   },
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
-    whiteSpace: "nowrap"
+    whiteSpace: 'nowrap',
   },
   drawerOpen: {
     width: drawerWidth,
-    transition: theme.transitions.create("width", {
+    transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen
-    })
+      duration: theme.transitions.duration.enteringScreen,
+    }),
   },
   drawerClose: {
-    transition: theme.transitions.create("width", {
+    transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
+      duration: theme.transitions.duration.leavingScreen,
     }),
-    overflowX: "hidden",
+    overflowX: 'hidden',
     width: theme.spacing.unit * 7 + 1,
-    [theme.breakpoints.up("sm")]: {
-      width: theme.spacing.unit * 9 + 1
-    }
+    [theme.breakpoints.up('sm')]: {
+      width: theme.spacing.unit * 9 + 1,
+    },
   },
   toolbar: {
-    display: "flex",
-    alignItems: "center",
+    display: 'flex',
+    alignItems: 'center',
     marginTop: theme.spacing.unit,
     marginLeft: '50px',
-    justifyContent: "center",
-    ...theme.mixins.toolbar
+    justifyContent: 'center',
+    ...theme.mixins.toolbar,
   },
   content: {
     flexGrow: 1,
     padding: theme.spacing.unit * 7,
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   grow: {
-    flexGrow: 1
-  }
+    flexGrow: 1,
+  },
 });
 
 class MiniDrawer extends React.Component {
   handleLogout = () => {
     localStorage.clear();
+  };
 
-  }
   state = {
     open: false,
     anchorEl: null,
     logOut: false,
     profile: false,
-    home: false
+    home: false,
   };
 
   handleDrawerOpen = () => {
@@ -123,36 +123,38 @@ class MiniDrawer extends React.Component {
     this.setState({ open: false });
   };
 
-  handleMenu = event => {
+  handleMenu = (event) => {
     this.setState({ anchorEl: event.currentTarget });
   };
+
   handleClose = () => {
     this.setState({ anchorEl: null });
   };
+
   handleLogout = () => {
     localStorage.clear();
-    this.setState({ logOut: true});
-  }
+    this.setState({ logOut: true });
+  };
+
   handleHome = () => {
-    this.setState({ home: true});
-  }
+    this.setState({ home: true });
+  };
 
   render() {
     const { classes, theme } = this.props;
     const { anchorEl } = this.state;
     const open = Boolean(anchorEl);
     return (
-    <>
       <div className={classes.root}>
         <CssBaseline />
         <AppBar
           position="fixed"
           className={classes.appBar}
           fooJon={classNames(classes.appBar, {
-            [classes.appBarShift]: this.state.open
+            [classes.appBarShift]: this.state.open,
           })}
         >
-          <Toolbar disableGutters={true}>
+          <Toolbar disableGutters>
             <IconButton
               color="inherit"
               aria-label="Open drawer"
@@ -163,7 +165,7 @@ class MiniDrawer extends React.Component {
                 classes={{
                   root: this.state.open
                     ? classes.menuButtonIconOpen
-                    : classes.menuButtonIconClosed
+                    : classes.menuButtonIconClosed,
                 }}
               />
             </IconButton>
@@ -174,32 +176,31 @@ class MiniDrawer extends React.Component {
               noWrap
               onClick={this.handleHome}
             >
-              <Link style={{textDecoration:'none', color:'white'}}to='/dashboard'>mentee.</Link>
+              <Link style={{ textDecoration: 'none', color: 'white' }} to="/dashboard">mentee.</Link>
             </Typography>
-            
+
             <div>
               <IconButton
-                aria-owns={open ? "menu-appbar" : undefined}
+                aria-owns={open ? 'menu-appbar' : undefined}
                 aria-haspopup="true"
                 onClick={this.handleMenu}
                 color="inherit"
               >
-                <Link style={{textDecoration:'none', color:'white'}} to='/profile'><AccountCircle /></Link>
+                <Link style={{ textDecoration: 'none', color: 'white' }} to="/profile"><AccountCircle /></Link>
               </IconButton>
-              
+
               <Menu
                 id="menu-appbar"
                 anchorEl={anchorEl}
                 anchorOrigin={{
-                  vertical: "top",
-                  horizontal: "right"
+                  vertical: 'top',
+                  horizontal: 'right',
                 }}
                 transformOrigin={{
-                  vertical: "top",
-                  horizontal: "right"
+                  vertical: 'top',
+                  horizontal: 'right',
                 }}
-              >
-              </Menu>
+              />
             </div>
           </Toolbar>
         </AppBar>
@@ -207,60 +208,55 @@ class MiniDrawer extends React.Component {
           variant="permanent"
           className={classNames(classes.drawer, {
             [classes.drawerOpen]: this.state.open,
-            [classes.drawerClose]: !this.state.open
+            [classes.drawerClose]: !this.state.open,
           })}
           classes={{
             paper: classNames({
               [classes.drawerOpen]: this.state.open,
-              [classes.drawerClose]: !this.state.open
-            })
+              [classes.drawerClose]: !this.state.open,
+            }),
           }}
           open={this.state.open}
         >
           <div className={classes.toolbar} />
           <List>
-              <ListItem style={{color:'white'}}button key='Mentor'>
+            <Link to="/friendsPage">
+              <ListItem button key="Friends">
                 <ListItemIcon>
-                  <EmojiPeopleIcon/>
+                  <WcIcon />
                 </ListItemIcon>
-                <ListItemText style={{color:'white'}}primary='Mentor' />
+                <ListItemText style={{ color: 'white' }} primary="Friends" />
               </ListItem>
-              <ListItem button key='Friends'>
-                <ListItemIcon>
-                  <WcIcon/>
-                </ListItemIcon>
-                <ListItemText style={{color:'white'}}primary='Friends' />
-              </ListItem>
-              <ListItem button key='Messages'>
-                <ListItemIcon>
-                  <MailIcon/>
-                </ListItemIcon>
-                <ListItemText style={{color:'white'}}primary='Messages' />
-              </ListItem>
+            </Link>
+            <ListItem button key="Messages">
+              <ListItemIcon>
+                <MailIcon />
+              </ListItemIcon>
+              <ListItemText style={{ color: 'white' }} primary="Messages" />
+            </ListItem>
           </List>
           <Divider />
           <List>
-              <ListItem style={{color:'white'}} onClick={this.handleLogout}button key='Log Out'>
-                <ListItemIcon>
-                  <ExitToAppIcon/>
-                </ListItemIcon>
-                {this.state.logOut && <Navigate to= '/login' replace={true}/>} 
-                <ListItemText primary='Log Out' />
-              </ListItem>
+            <ListItem style={{ color: 'white' }} onClick={this.handleLogout} button key="Log Out">
+              <ListItemIcon>
+                <ExitToAppIcon />
+              </ListItemIcon>
+              {this.state.logOut && <Navigate to="/login" replace />}
+              <ListItemText primary="Log Out" />
+            </ListItem>
           </List>
         </Drawer>
         <main className={classes.content}>
           <div className={classes.toolbar} />
         </main>
       </div>
-    </>
     );
   }
 }
 
 MiniDrawer.propTypes = {
   classes: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired
+  theme: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles, { withTheme: true })(MiniDrawer);

@@ -17,7 +17,8 @@
 }
 
 .form {
-  max-width: 30vw;
+  min-width: 10vw;
+  max-width: 60vw;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -27,25 +28,31 @@
 }
 
 .makeStyles-input-10 {
-  color: white !important;
+  color: white!important;
 }
 
+.makeStyles-underline-1:after {
+  border-color: var(--white)!important;
+}
 .makeStyles-underline-2:after {
   border-color: white !important;
 }
 
+
 .makeStyles-button-12:hover, .makeStyles-button-12:focus {
-  box-shadow: none !important;
+  box-shadow: none!important;
 }
 .form .form__custom-button {
   margin-top: 50px;
 }
+
+
 .MuiInputBase-input {
-  color: white !important;
+  color: white!important;
 }
 
 .MuiFormLabel-root {
-  color: #96bbd6 !important;
+  color: #96bbd6!important;
 }
 
 .makeStyles-container-3{
@@ -71,11 +78,10 @@
 ::-webkit-scrollbar-thumb {
   -webkit-border-radius: 10px;
   border-radius: 10px;
-  background: rgba(255,0,0,0.8); 
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
 ::-webkit-scrollbar-thumb:window-inactive {
-  background: rgba(255,0,0,0.4); 
+  background: rgba(0, 0, 0, 0.4); 
 }
 
 .MuiPaper-elevation1 {
@@ -105,4 +111,25 @@ body {
 
 .css-17ga7yb-MuiTypography-root {
   font-size: 20px!important;
+}
+
+.MiniDrawer-content-12 {
+  padding: 0rem!important;
+}
+
+.tabs {
+  background-color: #1E1E1E!important;
+  color:#3C4E5C!important;
+}
+
+element.style {
+  background:#1E1E1E!important;
+}
+
+.content {
+  background:#1E1E1E!important;
+}
+
+.css-1getg8n-MuiDataGrid-root {
+  background:#1E1E1E!important;
 }
