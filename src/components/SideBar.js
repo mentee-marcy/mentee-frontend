@@ -220,12 +220,30 @@ class MiniDrawer extends React.Component {
         >
           <div className={classes.toolbar} />
           <List>
+              <ListItem style={{color:'white'}}button key='Mentor'>
+                <ListItemIcon>
+                  <EmojiPeopleIcon/>
+                </ListItemIcon>
+                <ListItemText style={{color:'white'}}primary='Mentor' />
+              </ListItem>
+              <Link to ='/friendsPage'>
+              <ListItem button key='Friends'>
             <Link to="/friendsPage">
               <ListItem button key="Friends">
                 <ListItemIcon>
                   <WcIcon />
                 </ListItemIcon>
+                <ListItemText style={{color:'white'}}primary='Friends' />
+              </ListItem>
+              </Link>
+              <ListItem button key='Messages'>
+                <ListItemIcon>
+                  <MailIcon/>
+                </ListItemIcon>
+                <ListItemText style={{color:'white'}}primary='Messages' />
+
                 <ListItemText style={{ color: 'white' }} primary="Friends" />
+
               </ListItem>
             </Link>
             <ListItem button key="Messages">

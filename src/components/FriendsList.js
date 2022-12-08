@@ -54,7 +54,7 @@ export default function FriendsList() {
     }, []);
     //console.log(friendRequests)
     const filterFriendRequests = friendRequests.filter((frnd) => frnd.id !== userId);
-    const combFilteredFriendRequests = filterFriendRequests.map((friend) => {
+    let combFilteredFriendRequests = filterFriendRequests.map((friend) => {
         const { id } = friend;
         const name = `${friend.first_name} ${friend.last_name}`;
         const { tech_stack } = friend;
@@ -87,8 +87,16 @@ export default function FriendsList() {
     
     async function acceptFriendRequest(event){
         let friendId = event.target.parentElement.parentElement.parentElement.getAttribute('data-id');
+        friendId = Number(friendId)
         let friend = await axios.put(`http://localhost:8000/users/friend/${friendId}`, { "userId": userId }).then(res => res);
-        console.log(friend)
+        combFilteredFriendRequests = combFilteredFriendRequests.filter((frnd) => frnd.id != friendId);
+        setFriendRequests(combFilteredFriendRequests)
+        changeFriendsArrStatus(friendId)
+        //setFriends([friend])
+    }
+
+    function changeFriendsArrStatus(id){
+        // let friend = await axios.get(`http://localhost:8000/users/${friendId}`)
     }
     const [toggleState, setToggleState] = useState(1);
 
