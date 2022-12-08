@@ -126,9 +126,8 @@ export default function FriendsList() {
                     <div
                         className={toggleState === 1 ? 'content  active-content' : 'content'}
                     >
-                        <h2>Content 1</h2>
                         <hr />
-                        <Box height="75vh" width="140vh">
+                        <Box height="75vh" width="100vw">
                             <DataGrid
                                 columns={columns}
                                 rows={combFilteredFriends}
@@ -136,7 +135,7 @@ export default function FriendsList() {
                                 sx={{
                                     border: 'none',
                                     color: 'white',
-                                    background: '#48494b',
+                                    marginLeft: '5.5rem'
                                 }}
                             />
                         </Box>
@@ -145,15 +144,15 @@ export default function FriendsList() {
                     <div
                         className={toggleState === 2 ? 'content  active-content' : 'content'}
                     >
-                        <h2>Content 2</h2>
                         <hr />
-                        <Box height="75vh" width="140vh">
+                        <Box height="100vh" width="100vw">
                             <DataGrid
                                 columns={columnsTwo.concat(actionColumn)}
                                 rows={combFilteredFriendRequests}
                                 sx={{
                                     border: 'none',
                                     color: 'white',
+                                    marginLeft: '5.5rem'
                                 }}
                             />
                         </Box>

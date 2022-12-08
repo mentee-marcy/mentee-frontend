@@ -12,10 +12,13 @@ const config = {
     }
 };
 let [name, setName] = useState('')
+let [techStack, setStack] = useState([]);
 useEffect(() => {
     axios.get('http://localhost:8000/users/profile', config)
     .then(resp => {
         setName(resp.data);
+        const tech = resp.data.tech_stack;
+        setStack(tech);
     })
 }, []);
 const isMentor = name.mentor;
@@ -35,7 +38,6 @@ function stringToColor(string) {
       const value = (hash >> (i * 8)) & 0xff;
       color += `00${value.toString(16)}`.slice(-2);
     }
-    /* eslint-enable no-bitwise */
   
     return color;
   }
@@ -49,21 +51,23 @@ function stringToColor(string) {
     };
   }
   
-const techStack = name.tech_stack;
 
   return (
     <div>
         <Sidebar/>
         <div style={{display:'grid',color:'white',paddingLeft: '35rem', paddingRight: '20rem'}}>
         <div style={{paddingLeft:'5rem'}}>
-        <Avatar style={{width:'150px',height:'150px', marginLeft:'10px', fontSize:'5.5rem'}} {...stringAvatar(`${name.first_name} ${name.last_name}`)} />
+            <Avatar style={{width:'150px',height:'150px', marginLeft:'10px', fontSize:'5.5rem'}} {...stringAvatar(`${name.first_name} ${name.last_name}`)} />
         </div>
         <div style={{display:'flex',paddingLeft:'1rem'}}>
-        <p style={{fontSize:'3rem'}}>{`${name.first_name} ${name.last_name} `}</p>
-        {isMentor ? <img style={{width:'50px',height:'50px', marginLeft:'10px'}}alt=''src={require('../icon.PNG')}/> : <div/>}
+            <p style={{fontSize:'3rem'}}>{`${name.first_name} ${name.last_name} `}</p>
+            {isMentor ? <img style={{width:'50px',height:'50px', marginLeft:'10px'}}alt=''src={require('../icon.PNG')}/> : <div/>}
         </div>
-        <p style={{paddingLeft:'8.5rem',paddingBottom:'1rem'}}>New York</p>
-        <p style={{paddingLeft:'4rem',fontSize:'1.5rem'}}>{techStack}</p>
+            <p style={{paddingLeft:'8.5rem',paddingBottom:'1rem'}}>New York</p>
+            
+            <ul style={{display:'flex', flexDirection:'row', listStyle:'none', paddingLeft:'1.9rem'}}>
+            {techStack.map(el => <li style={{padding:'.7rem', fontSize:'1.3rem'}}>{`${el}  `}</li>)}
+            </ul>
         </div>
     </div>
   )
