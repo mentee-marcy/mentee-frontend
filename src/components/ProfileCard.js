@@ -11,7 +11,7 @@ export default function BasicCard(props) {
   const {MentorStatus, Name, TechStack, addMentor} = props
 
   return (
-    <Card sx={{ minWidth: 300, maxWidth: 300, textAlign: 'center', padding: '2rem', borderRadius:"20px"}}>
+    <Card sx={{ minWidth: 300, maxWidth: 300, height: '22rem', textAlign: 'center', padding: '2rem', borderRadius:"30px", position: 'relative'}}>
       <CardContent>
         <Typography sx={{ fontSize: 20, fontWeight: 'bold' }} color="text.secondary" gutterBottom>
         {MentorStatus}
@@ -22,10 +22,10 @@ export default function BasicCard(props) {
         <Typography className= "Name"sx={{ mb: 1.9 }} color="text.secondary">
             {Name}
         </Typography>
-        <Typography sx={{ fontSize: 12, fontWeight: 'bold' }}variant="body2">{[TechStack].join(' ')}
+        <Typography sx={{ fontSize: '1rem', fontWeight: 'bold' }}variant="body2">{[TechStack].join(' ')}
         </Typography>
       </CardContent>
-      <CardActions style={{paddingLeft:'3.4rem'}}>
+      <CardActions style={{paddingLeft:'3.4rem',position: 'absolute', bottom: '2rem'}}>
         <Button style={{fontWeight: 'bolder', padding: '.7rem', backgroundColor: 'white', borderRadius:'20px'}}size="small">{addMentor}</Button>
       </CardActions>
     </Card>
