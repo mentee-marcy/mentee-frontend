@@ -227,7 +227,7 @@ class MiniDrawer extends React.Component {
                 <ListItemText style={{color:'white'}}primary='Mentor' />
               </ListItem>
               <Link to ='/friendsPage'>
-              <ListItem button key='Friends'>
+              {/* <ListItem button key='Friends'> */}
             <Link to="/friendsPage">
               <ListItem button key="Friends">
                 <ListItemIcon>

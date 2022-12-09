@@ -27,20 +27,23 @@ export default function FriendsList() {
             id, name, tech_stack, mentor,
         };
     });
+    console.log(combFilteredFriends)
     //console.log(combFilteredFriends);
 
-    const columns = [{ field: 'id', headerName: 'Id', customHeadRender: () => null },
+    const columns = [{ field: 'id', headerName: 'Id',  hide: false},
     {
-        field: 'name', headerName: 'Name', flex: 1, customHeadRender: () => null,
+        field: 'name', headerName: 'Name', flex: 1,  hide: false,
     },
     {
-        field: 'tech_stack', headerName: 'Tech Stack', flex: 1, customHeadRender: () => null,
+        field: 'tech_stack', headerName: 'Tech Stack', flex: 1,  hide: false,
     },
     {
         field: 'mentor',
         headerName: 'Mentor',
         renderCell: (params) => (params.row.mentor === true ? 'Mentor' : 'Mentee'),
-        customHeadRender: () => null,
+        hide: false,
+        flex:1,
+        //width:200
     },
     ];
 
@@ -51,7 +54,8 @@ export default function FriendsList() {
                 setFriendRequests(res.data);
             })
             .catch((err) => console.log(err));
-    }, []);
+            console.log(friends)
+    }, [friends]);
     //console.log(friendRequests)
     const filterFriendRequests = friendRequests.filter((frnd) => frnd.id !== userId);
     let combFilteredFriendRequests = filterFriendRequests.map((friend) => {
@@ -77,7 +81,10 @@ export default function FriendsList() {
             field: "Action", hearderName: "Action", width: 200, renderCell: () => {
                 return (
                     <div className='cellAction'>
-                        <div className='acceptButton' onClick={(e) => acceptFriendRequest(e)}>Accept</div>
+                        <div className='acceptButton' onClick={(e) => {
+                            acceptFriendRequest(e)
+                            window.location.reload(false)
+                            }}>Accept</div>
                         <div className='deleteButton'>Delete</div>
                     </div>
                 );
@@ -95,8 +102,14 @@ export default function FriendsList() {
         //setFriends([friend])
     }
 
-    function changeFriendsArrStatus(id){
-        // let friend = await axios.get(`http://localhost:8000/users/${friendId}`)
+    async function changeFriendsArrStatus(friendId){
+        let response = await axios.get(`http://localhost:8000/users/${friendId}`).then(res => res)
+        // const {id,first_name,last_name,tech_stack,mentor} = friend.data;
+        let friend = response.data
+        console.log(friend)
+        // const fullName = first_name+" "+last_name
+        setFriends([...friends, friend])
+        
     }
     const [toggleState, setToggleState] = useState(1);
 
