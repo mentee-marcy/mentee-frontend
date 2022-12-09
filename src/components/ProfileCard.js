@@ -6,12 +6,36 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Avatar from './Avatar'
 import Icon from '../images/icon.PNG'
+import axios from 'axios';
 
 export default function BasicCard(props) {
-  const {MentorStatus, Name, TechStack, addMentor} = props
+  const {MentorStatus, Name, TechStack, addMentor, id} = props
+  let userId = localStorage.getItem(id)
+  const body = {
+    "userId": userId
+  }
+  let isFriend = false;
+  const checkforFriend = async (id) => {
+    try {
+      await axios.get(`http://localhost:8000/users/${id}/friends`).then(resp => resp.data.map(x => x.id == id ? isFriend = true : isFriend = false))
+    }catch(error) {
+      console.log(error)
+    }
+  }
+  checkforFriend(localStorage.getItem('id'));
+
+  const addFriend = async (id) => {
+    try {
+      await axios.post(`http://localhost:8000/users/friend/${id}`,body).then(resp => console.log(resp.data))
+      
+    }catch(error) {
+      console.log(error)
+    }
+  }
+  
 
   return (
-    <Card sx={{ minWidth: 300, maxWidth: 300, textAlign: 'center', padding: '2rem', borderRadius:"20px"}}>
+    <Card sx={{ minWidth: 300, maxWidth: 300, textAlign: 'center', padding: '2rem', borderRadius:"20px"}} id={id}>
       <CardContent>
         <Typography sx={{ fontSize: 20, fontWeight: 'bold' }} color="text.secondary" gutterBottom>
         {MentorStatus}
@@ -22,11 +46,11 @@ export default function BasicCard(props) {
         <Typography className= "Name"sx={{ mb: 1.9 }} color="text.secondary">
             {Name}
         </Typography>
-        <Typography sx={{ fontSize: 12, fontWeight: 'bold' }}variant="body2">{[TechStack].join(' ')}
+        <Typography sx={{ fontSize: '1rem', fontWeight: 'bold' }}variant="body2">{[TechStack].join(' ')}
         </Typography>
       </CardContent>
       <CardActions style={{paddingLeft:'3.4rem'}}>
-        <Button style={{fontWeight: 'bolder', padding: '.7rem', backgroundColor: 'white', borderRadius:'20px'}}size="small">{addMentor}</Button>
+        {!isFriend ? <Button id={id} onClick={(e) => addFriend(e.target.id)}style={{fontWeight: 'bolder', padding: '.7rem', backgroundColor: 'white', borderRadius:'20px'}}size="small">{addMentor}</Button> : <Button id={id} style={{fontWeight: 'bolder', padding: '.7rem', backgroundColor: 'white', borderRadius:'20px'}}size="small">Pending</Button>}
       </CardActions>
     </Card>
   );

@@ -34,7 +34,6 @@ function stringAvatar(string) {
 export default function Avatar(props) {
   return (
     <>
-    {console.log(props, "here")}
         <Stack direction="row" spacing={2}>
         <Pic {...stringAvatar(props.Name)} />
         </Stack>

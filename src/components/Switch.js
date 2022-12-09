@@ -33,8 +33,7 @@ export default function Switches() {
       />
       <div style={{display:'flex', flexWrap: 'wrap', gap: '20px', paddingLeft:'5rem'}}>
         {mentees.map(m => (
-            <ProfileCard MentorStatus={m.mentor === true ? 'Mentor': 'Mentee'} Name={m.first_name + ' ' + m.last_name} bio={m.bio} addMentor={m.mentor === true ? 'Add as Mentor': 'Add as Mentee'} TechStack={m.tech_stack}/>
-            // console.log(m)
+            <ProfileCard MentorStatus={m.mentor === true ? 'Mentor': 'Mentee'} Name={m.first_name + ' ' + m.last_name} bio={m.bio} addMentor={m.mentor === true ? 'Add as Mentor': 'Add as Mentee'} TechStack={m.tech_stack} id={m.id}/>
         ))}
       </div>
     </div>
