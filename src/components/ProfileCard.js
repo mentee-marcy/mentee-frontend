@@ -1,14 +1,16 @@
 import * as React from 'react';
+import { useState } from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
+import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography';
 import Avatar from './Avatar'
 import Icon from '../images/icon.PNG'
 import axios from 'axios';
 
 export default function BasicCard(props) {
+  const [ button, setButton ] = useState('Connect')
   const {MentorStatus, Name, TechStack, addMentor, id} = props
   let userId = localStorage.getItem(id)
   const body = {
@@ -27,7 +29,7 @@ export default function BasicCard(props) {
   const addFriend = async (id) => {
     try {
       await axios.post(`http://localhost:8000/users/friend/${id}`,body).then(resp => console.log(resp.data))
-      
+      setButton('Pending')
     }catch(error) {
       console.log(error)
     }
@@ -35,7 +37,7 @@ export default function BasicCard(props) {
   
 
   return (
-    <Card sx={{ minWidth: 300, maxWidth: 300, textAlign: 'center', padding: '2rem', borderRadius:"20px"}} id={id}>
+    <Card sx={{ minWidth: 300, maxWidth: 300,  minHeight: 350, textAlign: 'center', padding: '2rem', borderRadius:"20px"}} id={id}>
       <CardContent>
         <Typography sx={{ fontSize: 20, fontWeight: 'bold' }} color="text.secondary" gutterBottom>
         {MentorStatus}
@@ -49,8 +51,8 @@ export default function BasicCard(props) {
         <Typography sx={{ fontSize: '1rem', fontWeight: 'bold' }}variant="body2">{[TechStack].join(' ')}
         </Typography>
       </CardContent>
-      <CardActions style={{paddingLeft:'3.4rem'}}>
-        {!isFriend ? <Button id={id} onClick={(e) => addFriend(e.target.id)}style={{fontWeight: 'bolder', padding: '.7rem', backgroundColor: 'white', borderRadius:'20px'}}size="small">{addMentor}</Button> : <Button id={id} style={{fontWeight: 'bolder', padding: '.7rem', backgroundColor: 'white', borderRadius:'20px'}}size="small">Pending</Button>}
+      <CardActions style={{paddingLeft:'4.5rem'}}>
+        <Button id={id} onClick={(e) => addFriend(e.target.id)}style={{fontWeight: 'bolder', padding: '.7rem', backgroundColor: 'white', borderRadius:'20px'}}size="small">{button}</Button> 
       </CardActions>
     </Card>
   );
