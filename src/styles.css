@@ -134,6 +134,11 @@ element.style {
   background:#1E1E1E!important;
 }
 
-#profileCard:hover{
+#profileCard :hover{
   background-color: #486f8d!important;
+}
+
+.makeStyles-paper-14 {
+  height: 101.5vh!important;
+  max-width: 90vw!important;
 }

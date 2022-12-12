@@ -226,9 +226,9 @@ class MiniDrawer extends React.Component {
                 <ListItemIcon>
                   <WcIcon />
                 </ListItemIcon>
-                <ListItemText style={{ color: 'white' }} primary="Friends" />
+                <ListItemText style={{color:'white',textDecoration:'none!important'}}primary='Friends' />
               </ListItem>
-            </Link>
+              </Link>
             <ListItem button key="Messages"style={{ textDecoration: 'none' }}>
               <ListItemIcon>
                 <MailIcon />
@@ -243,9 +243,6 @@ class MiniDrawer extends React.Component {
               <ListItemText style={{ color: 'white' }} primary="Video Chat" />
             </ListItem>
             </Link>
-          </List>
-          <Divider />
-          <List>
             <ListItem style={{ color: 'white' }} onClick={this.handleLogout} button key="Log Out">
               <ListItemIcon>
                 <ExitToAppIcon />
