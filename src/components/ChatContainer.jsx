@@ -10,6 +10,7 @@ const ChatContainer = ({currentChat, user}) => {
     useEffect(()=>{
         async function getMessages(){
             const response = await axios.get(`http://localhost:8000/messages/${user}/${currentChat.id}`)
+            console.log(user,currentChat.id)
             setMessages(response.data)
         }
         getMessages()
@@ -40,7 +41,7 @@ const ChatContainer = ({currentChat, user}) => {
                         return(
                             
                             <div  className={`message ${message.sender_id == user? "sent":"recieved"}`}> 
-                                <div  className='content' id='content-message'>
+                                <div  className="content" id='content-message'>
                                     <p>
                                         { message.text}
                                     </p>
