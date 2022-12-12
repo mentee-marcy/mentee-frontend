@@ -8,7 +8,7 @@
     background:#48494b;
   }
   
-  .container {
+  .containerTabs {
     display: flex;
     flex-direction: column;
     position: relative;

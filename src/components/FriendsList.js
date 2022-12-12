@@ -7,6 +7,7 @@ import axios from 'axios';
 import './CSS/friendsList.css';
 import './CSS/tabs.css';
 
+
 export default function FriendsList() {
     const userId = 1;
     const [friends, setFriends] = useState([]);
@@ -119,7 +120,7 @@ export default function FriendsList() {
     return (
         <div className="friendsTable">
 
-            <div className="container">
+            <div className="containerTabs">
                 <div className="bloc-tabs">
                     <button
                         className={toggleState === 1 ? 'tabs active-tabs' : 'tabs'}
