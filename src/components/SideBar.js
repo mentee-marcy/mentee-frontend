@@ -221,7 +221,7 @@ class MiniDrawer extends React.Component {
         >
           <div className={classes.toolbar} />
           <List>
-            <Link to="/friendsPage">
+            <Link to="/friendsPage"style={{ textDecoration: 'none' }}>
               <ListItem button key="Friends">
                 <ListItemIcon>
                   <WcIcon />
@@ -229,13 +229,13 @@ class MiniDrawer extends React.Component {
                 <ListItemText style={{ color: 'white' }} primary="Friends" />
               </ListItem>
             </Link>
-            <ListItem button key="Messages">
+            <ListItem button key="Messages"style={{ textDecoration: 'none' }}>
               <ListItemIcon>
                 <MailIcon />
               </ListItemIcon>
               <ListItemText style={{ color: 'white' }} primary="Messages" />
             </ListItem>
-            <Link to="/videochat">
+            <Link to="/videochat"style={{ textDecoration: 'none' }}>
             <ListItem button key="Video Chat">
               <ListItemIcon>
                 <VideoCallIcon />

@@ -133,3 +133,7 @@ element.style {
 .css-1getg8n-MuiDataGrid-root {
   background:#1E1E1E!important;
 }
+
+#profileCard:hover{
+  background-color: #486f8d!important;
+}
