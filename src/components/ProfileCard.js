@@ -14,30 +14,45 @@ import connectProfile from '../pages/connectProfile'
 
 export default function BasicCard(props) {
   const [ button, setButton ] = useState('Connect')
+  const [ userID , setUserId ] = useState('')
   const {MentorStatus, Name, TechStack, addMentor, id} = props
-  let userId = localStorage.getItem(id)
-  const body = {
-    "userId": userId
-  }
-  let isFriend = false;
-  const checkforFriend = async (id) => {
-    try {
-      await axios.get(`http://localhost:8000/users/${id}/friends`).then(resp => resp.data.map(x => x.id == id ? isFriend = true : isFriend = false))
-    }catch(error) {
-      console.log(error)
+  const token = localStorage.getItem('token');
+  const config = {
+    headers:{
+      'x-access-token': token,
     }
   }
-  checkforFriend(localStorage.getItem('id'));
-
+  const getID = async () => {
+    try {
+      await axios.get('http://localhost:8000/users/profile', config).then(resp => setUserId(resp.data.id));
+      console.log(userID);
+    }catch(error) {
+      console.log(error);
+    }
+  }
+  getID();
+  
+  let isFriend = false;
+  // const checkforFriend = async (id) => {
+  //   try {
+  //     await axios.get(`http://localhost:8000/users/${id}/friends`).then(resp => resp.data.map(x => x.id == id ? isFriend = true : isFriend = false))
+  //   }catch(error) {
+  //     console.log(error)
+  //   }
+  // }
+  // checkforFriend();
+  const userBody = {
+      'userId' : userID
+    
+  }
   const addFriend = async (id) => {
     try {
-      await axios.post(`http://localhost:8000/users/friend/${id}`,body).then(resp => console.log(resp.data))
+      await axios.post(`http://localhost:8000/users/friend/${id}`,userBody).then(resp => console.log(resp.data))
       setButton('Pending')
     }catch(error) {
       console.log(error)
     }
   }
-  
 
   return (
     <Card sx={{ minWidth: 300, maxWidth: 300,  minHeight: 350, textAlign: 'center', padding: '2rem', borderRadius:"20px", position: 'relative',  '&:hover': {
