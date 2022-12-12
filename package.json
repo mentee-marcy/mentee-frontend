@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "-": "^0.0.1",
     "@babel/core": "^7.20.5",
     "@babel/preset-env": "^7.20.2",
     "@emotion/react": "^11.10.5",
@@ -18,11 +19,17 @@
     "axios": "^1.2.0",
     "classnames": "^2.3.2",
     "mdb-ui-kit": "^6.0.1",
+    "nodemon": "^2.0.20",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
+    "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^18.2.0",
     "react-scripts": "^5.0.1",
-    "react-scroll": "^1.8.1"
+    "react-scroll": "^1.8.1",
+    "simple-peer": "^9.11.1",
+    "socket-io": "^1.0.0",
+    "socket.io": "^4.5.4",
+    "socket.io-client": "^4.5.4"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -8,6 +8,8 @@ import { FriendsPage } from './pages/FriendsPage';
 import {Message} from './pages/Message';
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile'
+import Videochat from './pages/Videochat'
+import ConnectProfile from './pages/connectProfile'
 
 export default function App() {
   return (
@@ -21,6 +23,8 @@ export default function App() {
         <Route path="/dashboard" element={<Dashboard/>}/>
         <Route path="/message" element={<Message/>}/>
         <Route path="/profile" element={<Profile/>}/>
+        <Route path='/connectProfile' element={<ConnectProfile/>}/>
+        <Route path="/videochat" element={<Videochat/>}/>
       </Routes>
      </div>
 

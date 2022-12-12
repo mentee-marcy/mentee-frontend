@@ -19,6 +19,7 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import ListItemText from '@material-ui/core/ListItemText';
 import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import MailIcon from '@material-ui/icons/Mail';
+import VideoCallIcon from '@material-ui/icons/VideoCall';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import { Link, Navigate } from 'react-router-dom';
@@ -220,8 +221,7 @@ class MiniDrawer extends React.Component {
         >
           <div className={classes.toolbar} />
           <List>
-              {/* <ListItem button key='Friends'> */}
-            <Link to="/friendsPage">
+            <Link to="/friendsPage"style={{ textDecoration: 'none' }}>
               <ListItem button key="Friends">
                 <ListItemIcon>
                   <WcIcon />
@@ -229,15 +229,20 @@ class MiniDrawer extends React.Component {
                 <ListItemText style={{color:'white',textDecoration:'none!important'}}primary='Friends' />
               </ListItem>
               </Link>
-              <ListItem button key='Messages'>
-                <ListItemIcon>
-                  <MailIcon/>
-                </ListItemIcon>
-                <ListItemText style={{color:'white'}}primary='Messages' />
-              </ListItem>
-          </List>
-          <Divider />
-          <List>
+            <ListItem button key="Messages"style={{ textDecoration: 'none' }}>
+              <ListItemIcon>
+                <MailIcon />
+              </ListItemIcon>
+              <ListItemText style={{ color: 'white' }} primary="Messages" />
+            </ListItem>
+            <Link to="/videochat"style={{ textDecoration: 'none' }}>
+            <ListItem button key="Video Chat">
+              <ListItemIcon>
+                <VideoCallIcon />
+              </ListItemIcon>
+              <ListItemText style={{ color: 'white' }} primary="Video Chat" />
+            </ListItem>
+            </Link>
             <ListItem style={{ color: 'white' }} onClick={this.handleLogout} button key="Log Out">
               <ListItemIcon>
                 <ExitToAppIcon />

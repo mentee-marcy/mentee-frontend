@@ -8,6 +8,9 @@ import Typography from '@mui/material/Typography';
 import Avatar from './Avatar'
 import Icon from '../images/icon.PNG'
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+import connectProfile from '../pages/connectProfile'
+
 
 export default function BasicCard(props) {
   const [ button, setButton ] = useState('Connect')
@@ -37,13 +40,17 @@ export default function BasicCard(props) {
   
 
   return (
-    <Card sx={{ minWidth: 300, maxWidth: 300,  minHeight: 350, textAlign: 'center', padding: '2rem', borderRadius:"20px"}} id={id}>
+    <Card sx={{ minWidth: 300, maxWidth: 300,  minHeight: 350, textAlign: 'center', padding: '2rem', borderRadius:"20px", position: 'relative',  '&:hover': {
+      cursor: 'pointer',
+      backgroundColor: '#486f8d!important'}}} id={id}>
       <CardContent>
         <Typography sx={{ fontSize: 20, fontWeight: 'bold' }} color="text.secondary" gutterBottom>
         {MentorStatus}
         </Typography>
         <div style={{paddingLeft:'5rem', paddingTop:'.5rem', paddingBottom:'.5rem'}}>
-        <Avatar Name={Name}/>
+        <Link to='/connectProfile' style={{ textDecoration: 'none' }}>
+          <Avatar Name={Name}/>
+        </Link>
         </div>
         <Typography className= "Name"sx={{ mb: 1.9 }} color="text.secondary">
             {Name}
