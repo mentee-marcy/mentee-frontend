@@ -7,6 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import {Link} from "react-router-dom";
 import bg from '../images/register.jpg';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     appbar: {
@@ -24,12 +25,11 @@ const useStyles = makeStyles((theme) => ({
 export const RegisterMentee = () => {
 
     const [user, setUser] = useState({mentor: false, mentor_obj: {}});
-
+    const navigate = useNavigate();
     const createUser = async (e)  => {
         try {
             const resp = await axios.post('http://localhost:8000/users/register', user);
-            console.log(resp);
-            console.log(user);
+            navigate('/login', { replace: true })
         }catch (error){
             console.log(error);
         }

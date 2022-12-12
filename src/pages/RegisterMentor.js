@@ -34,7 +34,7 @@ export const RegisterMentor = () => {
     },
     mentor: true,
   });
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const createUser = async (e)  => {
     try {
         const resp = await axios.post('http://localhost:8000/users/register', user);
