@@ -6,15 +6,11 @@ import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 
 export default function Profile() {
-const config = {
-    headers:{
-      'x-access-token': localStorage.getItem('token')
-    }
-};
+
 let [name, setName] = useState('')
 let [techStack, setStack] = useState([]);
 useEffect(() => {
-    axios.get('http://localhost:8000/users/profile', config)
+    axios.get('http://localhost:8000/users/profile')
     .then(resp => {
         setName(resp.data);
         const tech = resp.data.tech_stack;
