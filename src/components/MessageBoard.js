@@ -4,7 +4,7 @@ import { Paper } from "@material-ui/core";
 import { TextInput } from "./TextInput.js";
 import { MessageLeft, MessageRight } from "./Message";
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles((theme) =>
   createStyles({
     paper: {
       width: "80vw",

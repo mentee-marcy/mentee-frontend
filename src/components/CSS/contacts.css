@@ -1,0 +1,50 @@
+.contactsContainer {
+    display: grid;
+    overflow: hidden;
+    background-color: #080420;
+}
+
+.contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+    gap: 0.8rem;
+    background-color: #080420;
+}
+
+::-webkit-scrollbar {
+    width: 0.2rem;
+}
+
+.thumb {
+    background-color: #ffffff39;
+    width: 0.1rem;
+    border-radius: 1rem;
+}
+
+.contact {
+    background-color: #ffffff34;
+    min-height: 5rem;
+    cursor: pointer;
+    width: 90%;
+    border-radius: 0.2rem;
+    padding: 0.4rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    transition: 0.5s ease-in-out;
+}
+
+.selected {
+    background-color: #9a86f3;
+}
+
+.avatar img {
+    height: 3rem;
+}
+
+ h3 {
+    color: black;
+
+}

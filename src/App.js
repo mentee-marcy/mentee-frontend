@@ -5,7 +5,7 @@ import {Routes, Route } from 'react-router-dom'
 import { RegisterMentee } from './pages/RegisterMentee';
 import {RegisterMentor} from './pages/RegisterMentor';
 import { FriendsPage } from './pages/FriendsPage';
-import {Message} from './pages/Message';
+import Message from './pages/Message';
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile'
 
