@@ -73,7 +73,9 @@ export default class Login extends Component {
             handleChange={this.handleChange}
             type="password"
           />
-          <Button onClick={() => this.loginUser(this.state)}type="button" className="form__custom-button">
+          <Button sx={{ ".makeStyles-button-60:hover, .makeStyles-button-60:focus": {
+    boxShadow: "none !important"
+  },}}onClick={() => this.loginUser(this.state)}type="button" className="form__custom-button">
             Log in
           </Button>
           {this.state.token && <Navigate to="/dashboard" replace={true} />}

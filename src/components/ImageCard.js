@@ -63,7 +63,7 @@ export default function ImageCard({ place, checked }) {
           </Typography>
         </CardContent>
         <div style={{ fontFamily:"KohinoorBangla-Semibold!important",display:'flex', justifyContent:'center', padding:'10px' }}>
-        <Link to={link}><Button color="primary"variant="contained">{place.buttonDescription}</Button></Link>
+        <Link to={link} style={{textDecoration: 'none'}}><Button color="primary"variant="contained">{place.buttonDescription}</Button></Link>
         </div>
       </Card>
     </Collapse>
