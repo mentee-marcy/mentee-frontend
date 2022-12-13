@@ -9,15 +9,40 @@ import './CSS/tabs.css';
 
 
 export default function FriendsList() {
-    const userId = 1;
+    const [userId,setUserId] = useState(null);
     const [friends, setFriends] = useState([]);
+    const [friendRequests, setFriendRequests] = useState([]);
+    
+    const token = localStorage.getItem('token');
+
+    const config = {
+        headers:{
+          "x-access-token": token
+        }
+      };
+    async function getUserId(){
+        const user = await axios.get(`http://localhost:8000/users/profile`,config).then(data=>data.data)
+        setUserId(user.id)
+    }
+    getUserId()
     useEffect(() => {
-        axios.get(`http://localhost:8000/users/${userId}/friends`)
-            .then((res) => {
-                setFriends(res.data);
-            })
-            .catch((err) => console.log(err));
-    }, []);
+            if(userId){
+                console.log(userId)
+                axios.get(`http://localhost:8000/users/${userId}/friends`)
+                .then((res) => {
+                    setFriends(res.data);
+                })
+                .catch((err) => console.log(err));
+
+                axios.get(`http://localhost:8000/users/friends/requests/${userId}`)
+                .then((res) => {
+                    setFriendRequests(res.data);
+                })
+                .catch((err) => console.log(err));
+                console.log(friends)
+            }
+    },[userId])
+
     const filterFriends = friends.filter((frnd) => frnd.id !== userId);
     const combFilteredFriends = filterFriends.map((friend) => {
         const { id } = friend;
@@ -28,7 +53,6 @@ export default function FriendsList() {
             id, name, tech_stack, mentor,
         };
     });
-    console.log(combFilteredFriends)
     //console.log(combFilteredFriends);
 
     const columns = [{ field: 'id', headerName: 'Id',  hide: false},
@@ -48,15 +72,6 @@ export default function FriendsList() {
     },
     ];
 
-    const [friendRequests, setFriendRequests] = useState([]);
-    useEffect(() => {
-        axios.get(`http://localhost:8000/users/friends/requests/${userId}`)
-            .then((res) => {
-                setFriendRequests(res.data);
-            })
-            .catch((err) => console.log(err));
-            console.log(friends)
-    }, [friends]);
     //console.log(friendRequests)
     const filterFriendRequests = friendRequests.filter((frnd) => frnd.id !== userId);
     let combFilteredFriendRequests = filterFriendRequests.map((friend) => {
@@ -68,7 +83,7 @@ export default function FriendsList() {
             id, name, tech_stack, mentor,
         };
     });
-    const columnsTwo = [/*{ field: "id", headerName: 'Id', customHeadRender: () => null },*/
+    const columnsTwo = [
     {
         field: 'name', headerName: 'Name', flex: 1, customHeadRender: () => null,
     },
@@ -100,15 +115,12 @@ export default function FriendsList() {
         combFilteredFriendRequests = combFilteredFriendRequests.filter((frnd) => frnd.id != friendId);
         setFriendRequests(combFilteredFriendRequests)
         changeFriendsArrStatus(friendId)
-        //setFriends([friend])
     }
 
     async function changeFriendsArrStatus(friendId){
         let response = await axios.get(`http://localhost:8000/users/${friendId}`).then(res => res)
-        // const {id,first_name,last_name,tech_stack,mentor} = friend.data;
         let friend = response.data
         console.log(friend)
-        // const fullName = first_name+" "+last_name
         setFriends([...friends, friend])
         
     }

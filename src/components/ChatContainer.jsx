@@ -38,7 +38,7 @@ const ChatContainer = ({currentChat, user, socket}) => {
             function arrivalMessages(){
                 socket.current.on("msg-recieve",(msg)=>{
                     console.log({msg})
-                    setArrivalMessage({sender_id:user, reciever_id:currentChat.id,"text":msg})
+                    setArrivalMessage({sender_id:currentChat.id, reciever_id:user,"text":msg})
                 })
             }
             arrivalMessages()
@@ -76,7 +76,8 @@ const ChatContainer = ({currentChat, user, socket}) => {
                     messages.map((message) =>{
                         return(
                             <div ref={scrollRef} key={uuidv4()}>
-                                <div  className={`message ${message.sender_id == user? "sent":"recieved"}`}> 
+                                {console.log(message.sender_id, user)}
+                                <div  className={`message ${message.sender_id === +user? "sent":"recieved"}`}> 
                                     <div  className="content" id='content-message'>
                                         <p>
                                             { message.text}

@@ -10,23 +10,18 @@ import Welcome from '../components/Welcome';
 import ChatContainer from '../components/ChatContainer';
 import {io} from "socket.io-client"
 
-//const socket = io.connect("http://localhost:8000");
+
 const Message = () => {
 
-  // const [message, setMessage] = React.useState("");
-  // const { id } = useParams();
-  // const [chat, setChat] = React.useState([]);
-  // const scrollRef = React.useRef();
 
   const socket = useRef();
  
-
   const [contacts, setContacts] = useState([]);
   const [currentChat, setCurrentChat] = useState(undefined);
   const [user, setUser] = useState(null)
 
   const token = localStorage.getItem('token');
-  //console.log(token)
+
   const config = {
     headers:{
       "x-access-token": token
