@@ -29,7 +29,6 @@ const Message = () => {
   };
   async function getUser(){
     const user = await axios.get(`http://localhost:8000/users/profile`,config).then(data=>data.data)
-    console.log(user)
     setUser(user.id)
   }
   useEffect(()=>{
@@ -59,6 +58,7 @@ const Message = () => {
   }
   return (
     <div className = 'containerBox' >
+        <Sidebar/>
         <div className='container'>
           <Contacts contacts={contacts} user={user} changeChat={handleChatChange} />
           {currentChat === undefined ? (

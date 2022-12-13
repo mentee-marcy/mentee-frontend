@@ -23,6 +23,7 @@ const Contacts = ({ contacts, user, changeChat }) => {
                                     <img
                                         src={`https://avatars.dicebear.com/api/adventurer-neutral/mail%40ashallendesign.co.uk.svg`}
                                         alt=""
+                                        style={{borderRadius: '50%'}}
                                     />
                                 </div>
                                 <div className="username">

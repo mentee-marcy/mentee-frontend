@@ -35,6 +35,7 @@ export default class Login extends Component {
     try {
       const resp = await axios.post('http://localhost:8000/users/login', data);
       window.localStorage.setItem('token', resp.data.token);
+      window.localStorage.setItem('id', resp.data.user.id);
       this.setState({...this.state, token : resp.data.token})
   }catch (error){
     console.log(error)

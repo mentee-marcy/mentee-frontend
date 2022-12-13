@@ -229,12 +229,14 @@ class MiniDrawer extends React.Component {
                 <ListItemText style={{color:'white',textDecoration:'none!important'}}primary='Friends' />
               </ListItem>
               </Link>
+            <Link to="/message"style={{ textDecoration: 'none', color: 'white' }}>
             <ListItem button key="Messages"style={{ textDecoration: 'none' }}>
               <ListItemIcon>
                 <MailIcon />
               </ListItemIcon>
               <ListItemText style={{ color: 'white' }} primary="Messages" />
             </ListItem>
+            </Link>
             <Link to="/videochat"style={{ textDecoration: 'none', color: 'white' }}>
             <ListItem button key="Video Chat">
               <ListItemIcon>
