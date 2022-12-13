@@ -21,8 +21,8 @@ export default function Dashboard() {
     getUsers()
   }, []);
 
-  const mentors = users.filter(user => user.mentor === true)
-  const mentees = users.filter(user => user.mentor === false)
+  const mentors = users.filter(user => user.mentor === true && user.id !== localStorage.getItem('id'))
+  const mentees = users.filter(user => user.mentor === false && user.id !== localStorage.getItem('id'))
 
   return (
     <div style={{minHeight: '100vh', maxWidth:'100vh'}}>

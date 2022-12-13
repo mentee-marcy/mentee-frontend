@@ -7,7 +7,7 @@
     justify-content: center;
     gap: 1rem;
     align-items: center;
-    background-color: #131324
+    background-color: #00000076
 }
 .container{
     height: 85vh;
@@ -86,7 +86,7 @@
     display: flex;
     justify-content: center;
     align-items:center;
-    background-color: #9a86f3;
+    background-color: #486f8d;
     border: none;
   }
   svg{

@@ -1,7 +1,7 @@
 .contactsContainer {
     display: grid;
     overflow: hidden;
-    background-color: #080420;
+    background-color: #00000076;
 }
 
 .contacts {
@@ -10,7 +10,7 @@
     align-items: center;
     overflow: auto;
     gap: 0.8rem;
-    background-color: #080420;
+    background-color: #151515;
 }
 
 ::-webkit-scrollbar {
@@ -18,13 +18,13 @@
 }
 
 .thumb {
-    background-color: #ffffff39;
+    background-color: #3C4E5C;
     width: 0.1rem;
     border-radius: 1rem;
 }
 
 .contact {
-    background-color: #ffffff34;
+    background-color: #3C4E5C;
     min-height: 5rem;
     cursor: pointer;
     width: 90%;
@@ -37,7 +37,7 @@
 }
 
 .selected {
-    background-color: #9a86f3;
+    background-color: #486f8d;
 }
 
 .avatar img {

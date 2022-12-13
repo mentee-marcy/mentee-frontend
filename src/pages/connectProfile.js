@@ -95,8 +95,8 @@ function stringToColor(string) {
         <div style={{paddingLeft:'5rem'}}>
             <Avatar style={{width:'150px',height:'150px', marginLeft:'10px', fontSize:'5.5rem'}} {...stringAvatar(`${name.first_name} ${name.last_name}`)} />
         </div>
-        <div style={{display:'flex', paddingLeft:'1rem'}}>
-            <p style={{fontSize:'3rem'}}>{`${name.first_name} ${name.last_name} `}</p>
+        <div style={{display:'flex', textAlign:'center'}}>
+            <p style={{fontSize:'3rem', textAlign: 'center'}}>{`${name.first_name} ${name.last_name} `}</p>
             {isMentor ? <img style={{width:'50px',height:'50px', marginLeft:'10px'}}alt=''src={require('../icon.PNG')}/> : <div/>}
         </div>
             <p style={{paddingLeft:'8.5rem',paddingBottom:'1rem'}}>New York</p>
