@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 import Avatar from './Avatar'
 import Icon from '../images/icon.PNG'
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import connectProfile from '../pages/connectProfile'
 
 
@@ -72,6 +72,11 @@ export default function BasicCard(props) {
     }
   } 
 
+  const navigate = useNavigate();
+  const toProfile = () => {
+    navigate('/connectProfile', {state: { id: id } })
+  }
+  
   const addFriend = async (id) => {
     try {
       await axios.post(`http://localhost:8000/users/friend/${id}`,userBody).then(resp => console.log(resp.data))
@@ -88,10 +93,10 @@ export default function BasicCard(props) {
         <Typography sx={{ fontSize: 20, fontWeight: 'bold' }} color="text.secondary" gutterBottom>
         {MentorStatus}
         </Typography>
-        <div style={{paddingLeft:'4rem', paddingTop:'.5rem', paddingBottom:'.5rem'}}>
-        <Link to='/connectProfile' style={{ textDecoration: 'none' }}>
-          <Avatar Name={Name}/>
-        </Link>
+        <div onClick={ toProfile } style={{paddingLeft:'4rem', paddingTop:'.5rem', paddingBottom:'.5rem'}}>
+
+          <Avatar onClick={toProfile} Name={Name}/>
+        
         </div>
         <Typography className= "Name"sx={{ mb: 1.9 }} color="text.secondary">
             {Name}
