@@ -72,7 +72,6 @@ export default function BasicCard(props) {
     }
   } 
 
-  console.log(Name, TechStack);
   const addFriend = async (id) => {
     try {
       await axios.post(`http://localhost:8000/users/friend/${id}`,userBody).then(resp => console.log(resp.data))
@@ -82,14 +81,14 @@ export default function BasicCard(props) {
     }
   }
   return (
-    <Card sx={{ minWidth: 300, maxWidth: 300,  minHeight: 350, textAlign: 'center', padding: '2rem', borderRadius:"20px", position: 'relative',  '&:hover': {
+    <Card sx={{ minWidth: 300, maxWidth: 300,  minHeight: 370, textAlign: 'center', padding: '2rem', borderRadius:"20px", position: 'relative',  '&:hover': {
       cursor: 'pointer',
       backgroundColor: '#486f8d!important'}}} id={id}>
       <CardContent>
         <Typography sx={{ fontSize: 20, fontWeight: 'bold' }} color="text.secondary" gutterBottom>
         {MentorStatus}
         </Typography>
-        <div style={{paddingLeft:'5rem', paddingTop:'.5rem', paddingBottom:'.5rem'}}>
+        <div style={{paddingLeft:'4rem', paddingTop:'.5rem', paddingBottom:'.5rem'}}>
         <Link to='/connectProfile' style={{ textDecoration: 'none' }}>
           <Avatar Name={Name}/>
         </Link>
@@ -99,12 +98,12 @@ export default function BasicCard(props) {
         </Typography>
         <div>
           {TechStack.map(el => {
-            return <img src={renderIcon(el)} width='.5rem'/>
+            return <img src={renderIcon(el)} width='40vw'/>
           })}
         </div>
       </CardContent>
-      <CardActions style={{paddingLeft:'4.5rem'}}>
-        <Button id={id} onClick={(e) => addFriend(e.target.id)}style={{fontWeight: 'bolder', padding: '.7rem', backgroundColor: 'white', borderRadius:'20px'}}size="small">{button}</Button> 
+      <CardActions style={{paddingLeft:'4.5rem', position: 'absolute', bottom: 5}}>
+        <Button id={id} onClick={(e) => addFriend(e.target.id)}style={{fontWeight: 'bolder', padding: '.8rem', backgroundColor: 'white', borderRadius:'20px'}}size="small">{button}</Button> 
       </CardActions>
     </Card>
   );
