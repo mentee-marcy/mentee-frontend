@@ -1,0 +1,24 @@
+import * as React from 'react';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import { useState } from 'react';
+
+
+export default function BasicButtons({setClicked}) {
+
+  return (
+    <Stack spacing={2} direction="row">
+      <Button sx={{color: '#486f8d', padding: '1rem 3rem',  '&:hover': {
+    // border: "1px solid #00FF00",
+    // color: 'gray',
+    backgroundColor: '#1E2431!important'
+  },}}style ={{backgroundColor: '#1E1E1E'}}onClick={() => setClicked(true)} variant="text">Mentors</Button>
+      <Button sx={{alignSelf: 'center',color: '#486f8d', padding: '1rem 3rem', '&:hover': {
+    // border: "1px solid #00FF00",
+    // color: 'gray',
+    backgroundColor: '#1E2431!important'
+  }}}style ={{backgroundColor: '#1E1E1E'}}onClick={() => setClicked(false)} variant="text">Mentees</Button>
+      
+    </Stack>
+  );
+}
