@@ -13,7 +13,6 @@ import connectProfile from '../pages/connectProfile'
 
 
 export default function BasicCard(props) {
-  console.log(props, "here")
   const [ button, setButton ] = useState('Connect')
   const [ userID , setUserId ] = useState('')
   const {MentorStatus, Name, TechStack, addMentor, id} = props
@@ -26,7 +25,6 @@ export default function BasicCard(props) {
   const getID = async () => {
     try {
       await axios.get('http://localhost:8000/users/profile', config).then(resp => setUserId(resp.data.id));
-      console.log(userID);
     }catch(error) {
       console.log(error);
     }
@@ -34,18 +32,47 @@ export default function BasicCard(props) {
   getID();
   
   let isFriend = false;
-  // const checkforFriend = async (id) => {
-  //   try {
-  //     await axios.get(`http://localhost:8000/users/${id}/friends`).then(resp => resp.data.map(x => x.id == id ? isFriend = true : isFriend = false))
-  //   }catch(error) {
-  //     console.log(error)
-  //   }
-  // }
-  // checkforFriend();
+
   const userBody = {
       'userId' : userID
     
   }
+  const renderIcon = (word)  => {
+    switch(word){
+      case 'Javascript':
+        return require('./languages/javascript.png')
+        break;
+      case 'Python':
+        return require('./languages/python.png')
+        break;
+      case 'Java':
+        return require('./languages/java.png')
+        break;
+      case 'C++':
+        return require('./languages/c++.png')
+        break;
+      case 'C#':
+        return require('./languages/csharp.png')
+        break;
+      case 'C':
+        return require('./languages/c.png')
+        break;
+      case 'Go':
+        return require('./languages/go.png')
+        break;
+      case 'Ruby':
+        return require('./languages/ruby.png')
+        break;
+      case 'Swift':
+        return require('./languages/swift.png')
+        break;
+      case 'PHP':
+        return require('./languages/php.png')
+        break;
+    }
+  } 
+
+  console.log(Name, TechStack);
   const addFriend = async (id) => {
     try {
       await axios.post(`http://localhost:8000/users/friend/${id}`,userBody).then(resp => console.log(resp.data))
@@ -54,7 +81,6 @@ export default function BasicCard(props) {
       console.log(error)
     }
   }
-
   return (
     <Card sx={{ minWidth: 300, maxWidth: 300,  minHeight: 350, textAlign: 'center', padding: '2rem', borderRadius:"20px", position: 'relative',  '&:hover': {
       cursor: 'pointer',
@@ -71,8 +97,11 @@ export default function BasicCard(props) {
         <Typography className= "Name"sx={{ mb: 1.9 }} color="text.secondary">
             {Name}
         </Typography>
-        <Typography sx={{ fontSize: '1rem', fontWeight: 'bold' }}variant="body2">{[TechStack].join(' ')}
-        </Typography>
+        <div>
+          {TechStack.map(el => {
+            return <img src={renderIcon(el)} width='.5rem'/>
+          })}
+        </div>
       </CardContent>
       <CardActions style={{paddingLeft:'4.5rem'}}>
         <Button id={id} onClick={(e) => addFriend(e.target.id)}style={{fontWeight: 'bolder', padding: '.7rem', backgroundColor: 'white', borderRadius:'20px'}}size="small">{button}</Button> 
