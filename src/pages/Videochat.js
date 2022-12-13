@@ -10,7 +10,6 @@ import io from "socket.io-client"
 import "../Videocall.css"
 import Sidebar from '../components/SideBar'
 
-
 const socket = io.connect('http://localhost:4001')
 function App() {
 	const [ me, setMe ] = useState("")
