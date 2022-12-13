@@ -13,6 +13,7 @@ import connectProfile from '../pages/connectProfile'
 
 
 export default function BasicCard(props) {
+  console.log(props, "here")
   const [ button, setButton ] = useState('Connect')
   const [ userID , setUserId ] = useState('')
   const {MentorStatus, Name, TechStack, addMentor, id} = props
