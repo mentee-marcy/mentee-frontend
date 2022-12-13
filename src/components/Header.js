@@ -57,7 +57,7 @@ export default function Header() {
           <h1 className={classes.appbarTitle}>
             mentee.<span className={classes.colorText}></span>
           </h1>
-          <Link to="/login"><Button color="primary"variant="contained">Log In</Button></Link>
+          <Link to="/login" style={{textDecoration: 'none'}}><Button color="primary"variant="contained">Log In</Button></Link>
         </Toolbar>
       </AppBar>
 

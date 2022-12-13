@@ -4,14 +4,20 @@ import axios from 'axios'
 import { useState, useEffect } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
+import { useLocation } from 'react-router-dom';
+
 
 export default function Profile() {
+const { state } = useLocation();
+const id = state.id;
+console.log(id);
 
 let [name, setName] = useState('')
 let [techStack, setStack] = useState([]);
 useEffect(() => {
-    axios.get('http://localhost:8000/users/profile')
+    axios.get(`http://localhost:8000/users/${id}`)
     .then(resp => {
+        console.log(resp.data);
         setName(resp.data);
         const tech = resp.data.tech_stack;
         setStack(tech);
@@ -46,25 +52,64 @@ function stringToColor(string) {
       children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
     };
   }
-  
+  const greeting = `Hey I'm ${name.first_name} ${name.last_name}. I'm a passionate programmer from New York. Let's Connect!`
+  const renderIcon = (word)  => {
+    switch(word){
+      case 'Javascript':
+        return require('../components/languages/javascript.png')
+        break;
+      case 'Python':
+        return require('../components/languages/python.png')
+        break;
+      case 'Java':
+        return require('../components/languages/java.png')
+        break;
+      case 'C++':
+        return require('../components/languages/c++.png')
+        break;
+      case 'C#':
+        return require('../components/languages/csharp.png')
+        break;
+      case 'C':
+        return require('../components/languages/c.png')
+        break;
+      case 'Go':
+        return require('../components/languages/go.png')
+        break;
+      case 'Ruby':
+        return require('../components/languages/ruby.png')
+        break;
+      case 'Swift':
+        return require('../components/languages/swift.png')
+        break;
+      case 'PHP':
+        return require('../components/languages/php.png')
+        break;
+    }
+  } 
 
   return (
     <div>
         <Sidebar/>
-        <div style={{display:'grid',color:'white',paddingLeft: '35rem', paddingRight: '20rem'}}>
+        <div style={{display:'grid',color:'white',paddingLeft: '35rem', paddingRight: '20rem', paddingTop: '3rem'}}>
         <div style={{paddingLeft:'5rem'}}>
             <Avatar style={{width:'150px',height:'150px', marginLeft:'10px', fontSize:'5.5rem'}} {...stringAvatar(`${name.first_name} ${name.last_name}`)} />
         </div>
-        <div style={{display:'flex',paddingLeft:'1rem'}}>
+        <div style={{display:'flex', paddingLeft:'1rem'}}>
             <p style={{fontSize:'3rem'}}>{`${name.first_name} ${name.last_name} `}</p>
             {isMentor ? <img style={{width:'50px',height:'50px', marginLeft:'10px'}}alt=''src={require('../icon.PNG')}/> : <div/>}
         </div>
             <p style={{paddingLeft:'8.5rem',paddingBottom:'1rem'}}>New York</p>
             
-            <ul style={{display:'flex', flexDirection:'row', listStyle:'none', paddingLeft:'1.9rem'}}>
-            {techStack.map(el => <li style={{padding:'.7rem', fontSize:'1.3rem'}}>{`${el}  `}</li>)}
-            </ul>
+          <div style={{paddingLeft:'6.7rem',paddingBottom:'1rem'}}>
+          {techStack.map(el => {
+            return <img src={renderIcon(el)} width='40vw'/>
+          })}
+          </div>
         </div>
+        <div>
+            <p style ={{color: 'white', textAlign: 'center', paddingLeft: '1rem'}}>{greeting}</p>
+          </div>
     </div>
   )
 }

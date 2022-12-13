@@ -26,6 +26,9 @@ function stringAvatar(string) {
   return {
     sx: {
       bgcolor: stringToColor(string),
+      height: '70px', 
+      width: '70px',
+      fontSize: '2rem' 
     },
     children: `${string.split(' ')[0][0]}${string.split(' ')[1][0]}`,
   };
@@ -34,7 +37,7 @@ function stringAvatar(string) {
 export default function Avatar(props) {
   return (
     <>
-        <Stack direction="row" spacing={2}>
+        <Stack direction="row" spacing={2} >
         <Pic {...stringAvatar(props.Name)} />
         </Stack>
     </>
