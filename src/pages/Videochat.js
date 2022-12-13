@@ -11,7 +11,7 @@
 // import Sidebar from '../components/SideBar'
 
 
-// const socket = io.connect('http://localhost:4001')
+// const socket = io.connect('http://localhost:3000')
 // function App() {
 // 	const [ me, setMe ] = useState("")
 // 	const [ stream, setStream ] = useState()
