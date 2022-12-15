@@ -5,7 +5,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography';
-import Avatar from './Avatar'
+// import Avatar from './Avatar'
 import Icon from '../images/icon.PNG'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -15,8 +15,9 @@ import connectProfile from '../pages/connectProfile'
 export default function BasicCard(props) {
   const [ button, setButton ] = useState('Connect')
   const [ userID , setUserId ] = useState('')
-  const {MentorStatus, Name, TechStack, addMentor, id} = props
+  const {MentorStatus, Name, TechStack, addMentor, id, Avatar} = props
   const token = localStorage.getItem('token');
+  console.log(Avatar)
   const config = {
     headers:{
       'x-access-token': token,
@@ -93,9 +94,9 @@ export default function BasicCard(props) {
         <Typography sx={{ fontSize: 20, fontWeight: 'bold' }} color="text.secondary" gutterBottom>
         {MentorStatus}
         </Typography>
-        <div onClick={ toProfile } style={{paddingLeft:'4rem', paddingTop:'.5rem', paddingBottom:'.5rem'}}>
-
-          <Avatar onClick={toProfile} Name={Name}/>
+        <div onClick={ toProfile } style={{paddingTop:'.5rem', paddingBottom:'.5rem'}}>
+          <img src={Avatar} width='70px'/>
+          {/* <Avatar onClick={toProfile} Name={Name}/> */}
         
         </div>
         <Typography className= "Name"sx={{ mb: 1.9 }} color="text.secondary">

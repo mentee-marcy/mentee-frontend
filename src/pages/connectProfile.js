@@ -25,33 +25,33 @@ useEffect(() => {
 }, []);
 const isMentor = name.mentor;
 
-function stringToColor(string) {
-    let hash = 0;
-    let i;
+// function stringToColor(string) {
+//     let hash = 0;
+//     let i;
   
-    /* eslint-disable no-bitwise */
-    for (i = 0; i < string.length; i += 1) {
-      hash = string.charCodeAt(i) + ((hash << 5) - hash);
-    }
+//     /* eslint-disable no-bitwise */
+//     for (i = 0; i < string.length; i += 1) {
+//       hash = string.charCodeAt(i) + ((hash << 5) - hash);
+//     }
   
-    let color = '#';
+//     let color = '#';
   
-    for (i = 0; i < 3; i += 1) {
-      const value = (hash >> (i * 8)) & 0xff;
-      color += `00${value.toString(16)}`.slice(-2);
-    }
+//     for (i = 0; i < 3; i += 1) {
+//       const value = (hash >> (i * 8)) & 0xff;
+//       color += `00${value.toString(16)}`.slice(-2);
+//     }
   
-    return color;
-  }
+//     return color;
+//   }
   
-  function stringAvatar(name) {
-    return {
-      sx: {
-        bgcolor: stringToColor(name),
-      },
-      children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
-    };
-  }
+//   function stringAvatar(name) {
+//     return {
+//       sx: {
+//         bgcolor: stringToColor(name),
+//       },
+//       children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
+//     };
+//   }
   const greeting = `Hey I'm ${name.first_name} ${name.last_name}. I'm a passionate programmer from New York. Let's Connect!`
   const renderIcon = (word)  => {
     switch(word){
@@ -92,8 +92,8 @@ function stringToColor(string) {
     <div>
         <Sidebar/>
         <div style={{display:'grid',color:'white',paddingLeft: '35rem', paddingRight: '20rem', paddingTop: '3rem'}}>
-        <div style={{paddingLeft:'5rem'}}>
-            <Avatar style={{width:'150px',height:'150px', marginLeft:'10px', fontSize:'5.5rem'}} {...stringAvatar(`${name.first_name} ${name.last_name}`)} />
+        <div style={{paddingLeft:'2.8rem'}}>
+          <img src={name.avatar}/>
         </div>
         <div style={{display:'flex', textAlign:'center'}}>
             <p style={{fontSize:'3rem', textAlign: 'center'}}>{`${name.first_name} ${name.last_name} `}</p>

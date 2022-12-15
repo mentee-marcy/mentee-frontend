@@ -91,26 +91,6 @@ import { useNavigate } from "react-router-dom";
                     </Form.Control>
                 </Form.Group>
 
-                <Form.Group controlId="hairColorForm">
-                    <Form.Label>Hair Color</Form.Label>
-                    <Form.Control
-                        as="select"
-                        name="HairColor"
-                        onChange={onChange}
-                    >
-                        <option value="Auburn">Auburn</option>
-                        <option value="Black">Black</option>
-                        <option value="Blonde">Blonde</option>
-                        <option value="BlondeGolden">BlondeGolden</option>
-                        <option value="Brown">Brown</option>
-                        <option value="BrownDark">BrownDark</option>
-                        <option value="PastelPink">PastelPink</option>
-                        <option value="Platinum">Platinum</option>
-                        <option value="Red">Red</option>
-                        <option value="SilverGray">SilverGray</option>
-                    </Form.Control>
-                </Form.Group>
-
                 <Form.Group controlId="accessoriesTypeForm">
                     <Form.Label>Accessories?</Form.Label>
                     <Form.Control
@@ -270,7 +250,7 @@ import { useNavigate } from "react-router-dom";
                     className="avatarFormSubmit"
                     primary
                     type="submit"
-                    label="Continue to dashboard"
+                    label="Continue to Login"
                 />
             </div>
         </div>
