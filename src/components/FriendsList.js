@@ -7,7 +7,6 @@ import axios from 'axios';
 import './CSS/friendsList.css';
 import './CSS/tabs.css';
 
-
 export default function FriendsList() {
     const [userId, setUserId] = useState(null);
     const [friends, setFriends] = useState([]);
@@ -41,29 +40,74 @@ export default function FriendsList() {
                 .catch((err) => console.log(err));
         }
     }, [userId])
-    
+
     const filterFriends = friends.filter((frnd) => frnd.id !== userId);
     const combFilteredFriends = filterFriends.map((friend) => {
         const { id } = friend;
         const name = `${friend.first_name} ${friend.last_name}`;
         const { tech_stack } = friend;
+        const { avatar } = friend
         const { mentor } = friend;
         return {
-            id, name, tech_stack, mentor,
+            id, name, tech_stack, avatar, mentor,
         };
     });
     //console.log(combFilteredFriends);
+    const renderIcon = (word) => {
+        switch (word) {
+            case 'Javascript':
+                return require('./languages/javascript.png')
+                break;
+            case 'Python':
+                return require('./languages/python.png')
+                break;
+            case 'Java':
+                return require('./languages/java.png')
+                break;
+            case 'C++':
+                return require('./languages/c++.png')
+                break;
+            case 'C#':
+                return require('./languages/csharp.png')
+                break;
+            case 'C':
+                return require('./languages/c.png')
+                break;
+            case 'Go':
+                return require('./languages/go.png')
+                break;
+            case 'Ruby':
+                return require('./languages/ruby.png')
+                break;
+            case 'Swift':
+                return require('./languages/swift.png')
+                break;
+            case 'PHP':
+                return require('./languages/php.png')
+                break;
+        }
+    }
 
-    const columns = [{ field: 'id', headerName: 'Id', hide: false },
+    const columns = [{
+        field: 'avatar', headerName: 'Profile', hide: false,
+        renderCell: (params) => {
+            return <img src={params.row.avatar} width="50vw" />
+        }
+    },
     {
         field: 'name', headerName: 'Name', flex: 1, hide: false,
     },
     {
         field: 'tech_stack', headerName: 'Tech Stack', flex: 1, hide: false,
+        renderCell: (params) => {
+            return params.row.tech_stack.map(x => {
+                return <img src={renderIcon(x)} width='30vw' />
+            })
+        }
     },
     {
         field: 'mentor',
-        headerName: 'Mentor',
+        headerName: 'Role',
         renderCell: (params) => (params.row.mentor === true ? 'Mentor' : 'Mentee'),
         hide: false,
         flex: 1,
@@ -83,10 +127,21 @@ export default function FriendsList() {
     });
     const columnsTwo = [
         {
+            field: 'avatar', headerName: 'Profile', hide: false,
+            renderCell: (params) => {
+                return <img src={params.row.avatar} width="50vw" />
+            }
+        },
+        {
             field: 'name', headerName: 'Name', flex: 1, customHeadRender: () => null,
         },
         {
-            field: 'tech_stack', headerName: 'Tech Stack', flex: 1, customHeadRender: () => null,
+            field: 'tech_stack', headerName: 'Tech Stack', flex: 1,
+            renderCell: (params) => {
+                return params.row.tech_stack.map(x => {
+                    return <img src={renderIcon(x)} width='30vw' />
+                })
+            }
         }
     ];
 
@@ -161,6 +216,10 @@ export default function FriendsList() {
                                     color: 'white',
                                     marginLeft: '5.5rem'
                                 }}
+                                getRowSpacing={params => ({
+                                    top: 5,
+                                    bottom: 5
+                                })}
                             />
                         </Box>
                     </div>

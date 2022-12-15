@@ -1,0 +1,26 @@
+.form-complete {
+    width: 80vw;
+    margin: auto;
+    align-items: center;
+    display: flex;
+    font-size: 20px;
+    height: 100vh;
+}
+
+#avatarContainer{
+     padding: 0px 10px;
+    display: flex;
+    flex: 50%;
+    color: white;
+    flex-direction: column;
+    width: 60%;
+    margin: auto;
+}
+
+.form-group {
+    display: flex;
+    padding: 0.4rem;
+    justify-content: space-between;
+}
+
+

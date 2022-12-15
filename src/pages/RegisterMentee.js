@@ -29,7 +29,9 @@ export const RegisterMentee = () => {
     const createUser = async (e)  => {
         try {
             const resp = await axios.post('http://localhost:8000/users/register', user);
-            navigate('/login', { replace: true })
+            const {id} = resp.data;
+            window.localStorage.setItem("id",id)
+            navigate('/avatar', { replace: true })
         }catch (error){
             console.log(error);
         }

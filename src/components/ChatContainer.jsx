@@ -1,6 +1,5 @@
 import React,{useEffect,useState,useRef} from 'react'
 import ChatInput from './ChatInput'
-import Texts from './Texts'
 import axios from 'axios'
 import { v4 as uuidv4} from 'uuid'
 const ChatContainer = ({currentChat, user, socket}) => {

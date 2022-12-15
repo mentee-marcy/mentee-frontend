@@ -10,6 +10,7 @@ import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile'
 import Videochat from './pages/Videochat'
 import ConnectProfile from './pages/connectProfile'
+import AvatarForm from './components/AvatarComponent'
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="/login" element={<Login/>}/>
         <Route path="/registerMentee" element={<RegisterMentee/>}/>
         <Route path="/registerMentor" element={<RegisterMentor/>}/>
+        <Route path="/avatar" element={<AvatarForm/>}/>
         <Route path="/friendsPage" element={<FriendsPage/>}/>
         <Route path="/dashboard" element={<Dashboard/>}/>
         <Route path="/message" element={<Message/>}/>

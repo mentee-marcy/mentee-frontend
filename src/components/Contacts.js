@@ -4,6 +4,7 @@ import './CSS/contacts.css'
 const Contacts = ({ contacts, user, changeChat }) => {
     const [currentSelected, setCurrentSelected] = useState(undefined);
     const changeCurrentChat = (index, contact) => {
+        console.log(contact.avatar)
         setCurrentSelected(index);
         changeChat(contact);
     };
@@ -21,7 +22,7 @@ const Contacts = ({ contacts, user, changeChat }) => {
                             >
                                 <div className="avatar">
                                     <img
-                                        src={`https://avatars.dicebear.com/api/adventurer-neutral/mail%40ashallendesign.co.uk.svg`}
+                                        src={contact.avatar}
                                         alt=""
                                         style={{borderRadius: '50%'}}
                                     />
