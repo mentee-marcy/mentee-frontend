@@ -52,6 +52,7 @@ function stringToColor(string) {
     };
   }
 
+  const greeting = `Hey I'm ${name.first_name} ${name.last_name}. I'm a passionate programmer from New York. Let's Connect!`
   const renderIcon = (word)  => {
     switch(word){
       case 'Javascript':
@@ -106,6 +107,9 @@ function stringToColor(string) {
             return <img src={renderIcon(el)} width='50vw'/>
           })}
           </div>
+        </div>
+        <div>
+            <p style ={{color: 'white', textAlign: 'center', paddingLeft: '1rem'}}>{greeting}</p>
         </div>
     </div>
   )

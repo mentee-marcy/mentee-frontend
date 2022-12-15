@@ -109,7 +109,7 @@ function stringToColor(string) {
         </div>
         <div>
             <p style ={{color: 'white', textAlign: 'center', paddingLeft: '1rem'}}>{greeting}</p>
-          </div>
+        </div>
     </div>
   )
 }
