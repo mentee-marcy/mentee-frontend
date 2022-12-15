@@ -38,7 +38,7 @@ export const RegisterMentor = () => {
   const createUser = async (e)  => {
     try {
         const resp = await axios.post('http://localhost:8000/users/register', user);
-        const {id} = resp;
+        const {id} = resp.data;
         window.localStorage.setItem("id",id);
         navigate('/avatar', { replace: true })
     }catch (error){

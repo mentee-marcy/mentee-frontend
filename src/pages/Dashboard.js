@@ -22,7 +22,7 @@ export default function Dashboard() {
 
   const mentors = users.filter(user => user.mentor === true && user.id !== localStorage.getItem('id'))
   const mentees = users.filter(user => user.mentor === false && user.id !== localStorage.getItem('id'))
-
+  console.log(mentors)
   return (
     <div style={{minHeight: '100vh', maxWidth:'100vh', minWidth: '100vw'}}>
       <Sidebar/>
@@ -35,7 +35,7 @@ export default function Dashboard() {
         <div style={{display:'flex', flexWrap: 'wrap', gap: '20px', paddingLeft:'5rem'}}>
         {clicked === true ? (
           mentors.map(m => {
-            return <ProfileCard MentorStatus={m.mentor === true ? 'Mentor': 'Mentee'} Name={m.first_name + ' ' + m.last_name} bio={m.bio} addMentor={m.mentor === true ? 'Add as Mentor': 'Add as Mentee'} TechStack={m.tech_stack} id={m.id}/>
+            return <ProfileCard MentorStatus={m.mentor === true ? 'Mentor': 'Mentee'} Name={m.first_name + ' ' + m.last_name} bio={m.bio} addMentor={m.mentor === true ? 'Add as Mentor': 'Add as Mentee'} TechStack={m.tech_stack} id={m.id} Avatar={m.avatar}/>
           })
         ): (
           mentees.map(m => {
