@@ -5,7 +5,6 @@ import ProfileCard from '../components/ProfileCard'
 import MentorMenteeButton from '../components/MentorMenteeButton';
 import axios from 'axios';
 
-
 export default function Dashboard() {
   const [clicked, setClicked] = useState(true);
   const [users, setUsers] = useState([]);
@@ -40,7 +39,7 @@ export default function Dashboard() {
           })
         ): (
           mentees.map(m => {
-            return <ProfileCard MentorStatus={m.mentor === true ? 'Mentor': 'Mentee'} Name={m.first_name + ' ' + m.last_name} bio={m.bio} addMentor={m.mentor === true ? 'Add as Mentor': 'Add as Mentee'} TechStack={m.tech_stack} id={m.id}/>
+            return <ProfileCard MentorStatus={m.mentor === true ? 'Mentor': 'Mentee'} Name={m.first_name + ' ' + m.last_name} bio={m.bio} addMentor={m.mentor === true ? 'Add as Mentor': 'Add as Mentee'} TechStack={m.tech_stack} id={m.id} Avatar={m.avatar}/>
           })
         )}
        </div>
