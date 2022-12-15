@@ -24,6 +24,9 @@ video {
 	/* override other styles to make responsive */
 	width: 110%    !important;
 	height: auto   !important;
+	border-style: solid;
+  	border-color: #486f8d;
+	border-width: thick;
 }
 
 .video-container {
@@ -34,6 +37,9 @@ video {
 	margin-top: 10rem;
 	margin-left: 10rem;
 	background:#1E1E1E!important;
+	transform: rotateY(180deg);
+    -webkit-transform:rotateY(180deg); /* Safari and Chrome */
+    -moz-transform:rotateY(180deg); /* Firefox */
 }
 
 .caller {

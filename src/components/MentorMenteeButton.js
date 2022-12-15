@@ -7,7 +7,7 @@ import { useState } from 'react';
 export default function BasicButtons({setClicked}) {
 
   return (
-    <Stack sx ={{justifyContent: 'center', alignItems: 'center'}}spacing={2} direction="row">
+    <Stack sx ={{justifyContent:'center'}}spacing={2} direction="row">
       <Button sx={{color: '#486f8d', padding: '1rem 3rem',fontSize: '1rem',  '&:hover': {
     backgroundColor: '#1E2431!important'
   },}}style ={{backgroundColor: '#1E1E1E'}}onClick={() => setClicked(true)} variant="text">Mentors</Button>

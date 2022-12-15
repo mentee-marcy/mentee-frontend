@@ -25,7 +25,7 @@ export default function Dashboard() {
   const mentees = users.filter(user => user.mentor === false && user.id !== localStorage.getItem('id'))
 
   return (
-    <div style={{minHeight: '100vh', maxWidth:'100vh'}}>
+    <div style={{minHeight: '100vh', maxWidth:'100vh', minWidth: '100vw'}}>
       <Sidebar/>
       <div>
       <p style={{fontFamily:'KohinoorBangla-Semibold', fontSize:'2.5rem', position: 'absolute', paddingLeft: '30%', color: 'white'}}>Find your Mentee Community Today</p>
