@@ -120,15 +120,17 @@ export default function FriendsList() {
         const { id } = friend;
         const name = `${friend.first_name} ${friend.last_name}`;
         const { tech_stack } = friend;
+        const {avatar} = friend
         const { mentor } = friend;
         return {
-            id, name, tech_stack, mentor,
+            id, name, tech_stack, avatar, mentor,
         };
     });
     const columnsTwo = [
         {
             field: 'avatar', headerName: 'Profile', hide: false,
             renderCell: (params) => {
+                //console.log(params.row)
                 return <img src={params.row.avatar} width="50vw" />
             }
         },
