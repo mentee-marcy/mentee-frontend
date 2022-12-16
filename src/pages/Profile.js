@@ -20,6 +20,7 @@ useEffect(() => {
         setName(resp.data);
         const tech = resp.data.tech_stack;
         setStack(tech);
+        console.log(resp.data)
     })
 }, []);
 const isMentor = name.mentor;
@@ -88,6 +89,8 @@ const isMentor = name.mentor;
     }
   } 
   
+  console.log(name)
+
   return (
     <div>
         <Sidebar/>

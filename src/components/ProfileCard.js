@@ -91,7 +91,7 @@ export default function BasicCard(props) {
       cursor: 'pointer',
       backgroundColor: '#486f8d!important'}}} id={id}>
       <CardContent>
-        <Typography sx={{ color: 'white', fontSize: 20, fontWeight: 'bold' }} color="text.secondary" gutterBottom>
+        <Typography sx={{ fontSize: 20, fontWeight: 'bold' }} color="text.secondary" gutterBottom>
         {MentorStatus}
         </Typography>
         <div onClick={ toProfile } style={{paddingTop:'.5rem', paddingBottom:'.5rem'}}>
@@ -99,7 +99,7 @@ export default function BasicCard(props) {
           {/* <Avatar onClick={toProfile} Name={Name}/> */}
         
         </div>
-        <Typography className= "Name"sx={{ mb: 1.9, color: 'white', fontFamily: 'Helvetica', fontWeight: 'bold', fontSize: '1.2rem'}} color="text.secondary">
+        <Typography className= "Name"sx={{ mb: 1.9 }} color="text.secondary">
             {Name}
         </Typography>
         <div>
