@@ -33,7 +33,8 @@ export default class Login extends Component {
   };
   loginUser = async (data)  =>{
     try {
-      const resp = await axios.post('http://localhost:8000/users/login', data);
+      //http://localhost:8000
+      const resp = await axios.post('http://mentee-backend-production.up.railway.app/users/login', data);
       window.localStorage.setItem('token', resp.data.token);
       window.localStorage.setItem('id', resp.data.user.id);
       this.setState({...this.state, token : resp.data.token})

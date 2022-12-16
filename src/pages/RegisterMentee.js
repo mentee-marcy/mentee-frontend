@@ -28,7 +28,9 @@ export const RegisterMentee = () => {
     const navigate = useNavigate();
     const createUser = async (e)  => {
         try {
-            const resp = await axios.post('http://localhost:8000/users/register', user);
+          //http://localhost:8000
+          
+            const resp = await axios.post('htttp://mentee-backend-production.up.railway.app/users/register', user);
             const {id} = resp.data;
             window.localStorage.setItem("id",id)
             navigate('/avatar', { replace: true })
