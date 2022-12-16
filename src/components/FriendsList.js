@@ -7,39 +7,41 @@ import axios from 'axios';
 import './CSS/friendsList.css';
 import './CSS/tabs.css';
 
+
 export default function FriendsList() {
-    const [userId, setUserId] = useState(null);
+    const [userId,setUserId] = useState(null);
     const [friends, setFriends] = useState([]);
     const [friendRequests, setFriendRequests] = useState([]);
-
+    
     const token = localStorage.getItem('token');
 
     const config = {
-        headers: {
-            "x-access-token": token
+        headers:{
+          "x-access-token": token
         }
-    };
-    async function getUserId() {
-        const user = await axios.get(`https://mentee-backend-production.up.railway.app/users/profile`, config).then(data => data.data)
+      };
+    async function getUserId(){
+        const user = await axios.get(`http://localhost:8000/users/profile`,config).then(data=>data.data)
         setUserId(user.id)
     }
     getUserId()
     useEffect(() => {
-        if (userId) {
-            console.log(userId)
-            axios.get(`https://mentee-backend-production.up.railway.app/users/${userId}/friends`)
+            if(userId){
+                console.log(userId)
+                axios.get(`http://localhost:8000/users/${userId}/friends`)
                 .then((res) => {
                     setFriends(res.data);
                 })
                 .catch((err) => console.log(err));
 
-            axios.get(`https://mentee-backend-production.up.railway.app/users/friends/requests/${userId}`)
+                axios.get(`http://localhost:8000/users/friends/requests/${userId}`)
                 .then((res) => {
                     setFriendRequests(res.data);
                 })
                 .catch((err) => console.log(err));
-        }
-    }, [userId])
+                console.log(friends)
+            }
+    },[userId])
 
     const filterFriends = friends.filter((frnd) => frnd.id !== userId);
     const combFilteredFriends = filterFriends.map((friend) => {
@@ -53,6 +55,7 @@ export default function FriendsList() {
         };
     });
     //console.log(combFilteredFriends);
+
     const renderIcon = (word) => {
         switch (word) {
             case 'Javascript':

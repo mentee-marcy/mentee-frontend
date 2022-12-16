@@ -80,7 +80,7 @@ export default function BasicCard(props) {
   
   const addFriend = async (id) => {
     try {
-      await axios.post(`https://mentee-backend-production.up.railway.app/users/friend/${id}`,userBody).then(resp => console.log(resp.data))
+      await axios.post(`http://localhost:8000/users/friend/${id}`,userBody).then(resp => console.log(resp.data))
       setButton('Pending')
     }catch(error) {
       console.log(error)

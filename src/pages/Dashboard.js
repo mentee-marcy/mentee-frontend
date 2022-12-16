@@ -5,12 +5,13 @@ import ProfileCard from '../components/ProfileCard'
 import MentorMenteeButton from '../components/MentorMenteeButton';
 import axios from 'axios';
 
+
 export default function Dashboard() {
   const [clicked, setClicked] = useState(true);
   const [users, setUsers] = useState([]);
   const getUsers = async () => {
     try {
-        const resp = await axios.get('https://mentee-backend-production.up.railway.app/users/');
+        const resp = await axios.get('http://localhost:8000/users/');
         setUsers(resp.data);
     }catch(error){
         console.log(error);
@@ -22,9 +23,9 @@ export default function Dashboard() {
 
   const mentors = users.filter(user => user.mentor === true && user.id !== localStorage.getItem('id'))
   const mentees = users.filter(user => user.mentor === false && user.id !== localStorage.getItem('id'))
-  console.log(mentors)
+
   return (
-    <div style={{minHeight: '100vh', maxWidth:'100vh', minWidth: '100vw'}}>
+    <div style={{minHeight: '100vh', maxWidth:'100vh'}}>
       <Sidebar/>
       <div>
       <p style={{fontFamily:'KohinoorBangla-Semibold', fontSize:'2.5rem', position: 'absolute', paddingLeft: '30%', color: 'white'}}>Find your Mentee Community Today</p>
@@ -35,11 +36,11 @@ export default function Dashboard() {
         <div style={{display:'flex', flexWrap: 'wrap', gap: '20px', paddingLeft:'5rem'}}>
         {clicked === true ? (
           mentors.map(m => {
-            return <ProfileCard MentorStatus={m.mentor === true ? 'Mentor': 'Mentee'} Name={m.first_name + ' ' + m.last_name} bio={m.bio} addMentor={m.mentor === true ? 'Add as Mentor': 'Add as Mentee'} TechStack={m.tech_stack} id={m.id} Avatar={m.avatar}/>
+            return <ProfileCard MentorStatus={m.mentor === true ? 'Mentor': 'Mentee'} Name={m.first_name + ' ' + m.last_name} bio={m.bio} addMentor={m.mentor === true ? 'Add as Mentor': 'Add as Mentee'} TechStack={m.tech_stack} id={m.id}/>
           })
         ): (
           mentees.map(m => {
-            return <ProfileCard MentorStatus={m.mentor === true ? 'Mentor': 'Mentee'} Name={m.first_name + ' ' + m.last_name} bio={m.bio} addMentor={m.mentor === true ? 'Add as Mentor': 'Add as Mentee'} TechStack={m.tech_stack} id={m.id} Avatar={m.avatar}/>
+            return <ProfileCard MentorStatus={m.mentor === true ? 'Mentor': 'Mentee'} Name={m.first_name + ' ' + m.last_name} bio={m.bio} addMentor={m.mentor === true ? 'Add as Mentor': 'Add as Mentee'} TechStack={m.tech_stack} id={m.id}/>
           })
         )}
        </div>
