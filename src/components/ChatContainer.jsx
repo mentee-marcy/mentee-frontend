@@ -10,7 +10,7 @@ const ChatContainer = ({currentChat, user, socket}) => {
     useEffect(()=>{
         if(currentChat){
             async function getMessages(){
-                const response = await axios.get(`http://localhost:8000/messages/${user}/${currentChat.id}`)
+                const response = await axios.get(`https://mentee-backend-production.up.railway.app/messages/${user}/${currentChat.id}`)
                 console.log(user,currentChat.id)
                 setMessages(response.data)
             }
@@ -20,7 +20,7 @@ const ChatContainer = ({currentChat, user, socket}) => {
     },[currentChat] )
 
     const handleSendMsg = async (msg) =>{
-        await axios.post(`http://localhost:8000/messages/${user}/${currentChat.id}`,{
+        await axios.post(`https://mentee-backend-production.up.railway.app/messages/${user}/${currentChat.id}`,{
             "message":msg
         })
         socket.current.emit("send-msg",{

@@ -15,7 +15,7 @@ console.log(id);
 let [name, setName] = useState('')
 let [techStack, setStack] = useState([]);
 useEffect(() => {
-    axios.get(`http://localhost:8000/users/${id}`)
+    axios.get(`hhttps://mentee-backend-production.up.railway.app/users/${id}`)
     .then(resp => {
         console.log(resp.data);
         setName(resp.data);

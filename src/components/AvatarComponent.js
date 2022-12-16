@@ -17,7 +17,7 @@ import { useNavigate } from "react-router-dom";
         try{
             console.log(avatarImage)
             const id = window.localStorage.getItem("id")
-            await axios.put(`http://localhost:8000/users/avatar`,{"avatar":avatarImage,id})
+            await axios.put(`https://mentee-backend-production.up.railway.app/users/avatar`,{"avatar":avatarImage,id})
             navigate('/login', { replace: true })
         }
         catch(err){

@@ -30,7 +30,7 @@ export const RegisterMentee = () => {
         try {
           //http://localhost:8000
           
-            const resp = await axios.post('htttp://mentee-backend-production.up.railway.app/users/register', user);
+            const resp = await axios.post('https://mentee-backend-production.up.railway.app/users/register', user);
             const {id} = resp.data;
             window.localStorage.setItem("id",id)
             navigate('/avatar', { replace: true })
