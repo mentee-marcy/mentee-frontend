@@ -25,7 +25,7 @@ export default function BasicCard(props) {
   }
   const getID = async () => {
     try {
-      await axios.get('http://localhost:8000/users/profile', config).then(resp => setUserId(resp.data.id));
+      await axios.get('https://mentee-backend-production-e50e.up.railway.app/users/profile', config).then(resp => setUserId(resp.data.id));
     }catch(error) {
       console.log(error);
     }
@@ -80,7 +80,7 @@ export default function BasicCard(props) {
   
   const addFriend = async (id) => {
     try {
-      await axios.post(`https://mentee-backend-production.up.railway.app/users/friend/${id}`,userBody).then(resp => console.log(resp.data))
+      await axios.post(`https://mentee-backend-production-e50e.up.railway.app/users/friend/${id}`,userBody).then(resp => console.log(resp.data))
       setButton('Pending')
     }catch(error) {
       console.log(error)

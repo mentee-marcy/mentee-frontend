@@ -11,7 +11,7 @@ export default function Switches() {
   });
   const getUsers = async () => {
     try {
-      const resp = await axios.get('http://localhost:8000/users/')
+      const resp = await axios.get('https://mentee-backend-production-e50e.up.railway.app/users/')
       setMentees(resp.data);
     }catch(error){
       console.log(error)

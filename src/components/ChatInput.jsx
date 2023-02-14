@@ -3,7 +3,6 @@ import {IoMdSend} from 'react-icons/io'
 
 const ChatInput = ({handleSendMsg}) => {
     const [msg, setMsg] = useState('') 
-    // console.log(msg)
     const sendChat = (event) =>{
         event.preventDefault();
         if(msg.length>0){

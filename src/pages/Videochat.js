@@ -10,7 +10,7 @@ import io from "socket.io-client"
 import "../Videocall.css"
 import Sidebar from '../components/SideBar'
 
-const socket = io.connect('https://mentee-backend-production.up.railway.app')
+const socket = io.connect('https://mentee-backend-production-e50e.up.railway.app')
 function App() {
 	const [ me, setMe ] = useState("")
 	const [ stream, setStream ] = useState()

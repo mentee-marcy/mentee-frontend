@@ -10,7 +10,7 @@ export default function Dashboard() {
   const [users, setUsers] = useState([]);
   const getUsers = async () => {
     try {
-        const resp = await axios.get('https://mentee-backend-production.up.railway.app/users/');
+        const resp = await axios.get('https://mentee-backend-production-e50e.up.railway.app/users/');
         setUsers(resp.data);
     }catch(error){
         console.log(error);

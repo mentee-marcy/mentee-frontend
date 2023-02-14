@@ -20,20 +20,20 @@ export default function FriendsList() {
         }
     };
     async function getUserId() {
-        const user = await axios.get(`https://mentee-backend-production.up.railway.app/users/profile`, config).then(data => data.data)
+        const user = await axios.get(`https://mentee-backend-production-e50e.up.railway.app/users/profile`, config).then(data => data.data)
         setUserId(user.id)
     }
     getUserId()
     useEffect(() => {
         if (userId) {
             console.log(userId)
-            axios.get(`https://mentee-backend-production.up.railway.app/users/${userId}/friends`)
+            axios.get(`https://mentee-backend-production-e50e.up.railway.app/users/${userId}/friends`)
                 .then((res) => {
                     setFriends(res.data);
                 })
                 .catch((err) => console.log(err));
 
-            axios.get(`https://mentee-backend-production.up.railway.app/users/friends/requests/${userId}`)
+            axios.get(`https://mentee-backend-production-e50e.up.railway.app/users/friends/requests/${userId}`)
                 .then((res) => {
                     setFriendRequests(res.data);
                 })
@@ -166,14 +166,14 @@ export default function FriendsList() {
     async function acceptFriendRequest(event) {
         let friendId = event.target.parentElement.parentElement.parentElement.getAttribute('data-id');
         friendId = Number(friendId)
-        let friend = await axios.put(`https://mentee-backend-production.up.railway.app/users/friend/${friendId}`, { "userId": userId }).then(res => res);
+        let friend = await axios.put(`https://mentee-backend-production-e50e.up.railway.app/users/friend/${friendId}`, { "userId": userId }).then(res => res);
         combFilteredFriendRequests = combFilteredFriendRequests.filter((frnd) => frnd.id != friendId);
         setFriendRequests(combFilteredFriendRequests)
         changeFriendsArrStatus(friendId)
     }
 
     async function changeFriendsArrStatus(friendId) {
-        let response = await axios.get(`https://mentee-backend-production.up.railway.app/users/${friendId}`).then(res => res)
+        let response = await axios.get(`https://mentee-backend-production-e50e.up.railway.app/users/${friendId}`).then(res => res)
         let friend = response.data
         console.log(friend)
         setFriends([...friends, friend])

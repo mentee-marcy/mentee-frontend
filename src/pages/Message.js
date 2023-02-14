@@ -28,7 +28,7 @@ const Message = () => {
     }
   };
   async function getUser(){
-    const user = await axios.get(`https://mentee-backend-production.up.railway.app/users/profile`,config).then(data=>data.data)
+    const user = await axios.get(`https://mentee-backend-production-e50e.up.railway.app/users/profile`,config).then(data=>data.data)
     setUser(user.id)
   }
   useEffect(()=>{
@@ -39,7 +39,7 @@ const Message = () => {
   useEffect(()=>{
     if(user){
       function getCurrentUser(){
-        socket.current = io("https://mentee-backend-production.up.railway.app")
+        socket.current = io("https://mentee-backend-production-e50e.up.railway.app")
         socket.current.emit("add-user",user)
       }
       getCurrentUser()
@@ -47,7 +47,7 @@ const Message = () => {
   },[user])
 
   async function getFriends(){
-    const data = await axios.get(`https://mentee-backend-production.up.railway.app/users/${user}/friends`)
+    const data = await axios.get(`https://mentee-backend-production-e50e.up.railway.app/users/${user}/friends`)
     const friends = data.data;
     const filterFriends = friends.filter((frnd) => frnd.id !== user);
     setContacts(filterFriends)

@@ -15,7 +15,7 @@ let [name, setName] = useState('')
 let [techStack, setStack] = useState([]);
 // let [user,setUser] = useState([]);
 useEffect(() => {
-    axios.get('http://localhost:8000/users/profile', config)
+    axios.get('https://mentee-backend-production-e50e.up.railway.app/users/profile', config)
     .then(resp => {
         setName(resp.data);
         const tech = resp.data.tech_stack;

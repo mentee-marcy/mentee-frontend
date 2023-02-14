@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 import axios from 'axios';
 
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles((theme) =>
   createStyles({
     wrapForm : {
         display: "flex",
